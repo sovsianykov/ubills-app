@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { Component } from "react";
+import Tabbuilder from "./Components/Layout/Tabbuilder/Tabbuilder";
+import Container from '@material-ui/core/Container/Container/'
+import Layout from "./Components/Layout/Layout";
+class App extends Component {
+  render() {
+    return (
+        <Container  >
+          <Layout>
+            <h1>my U-Bills</h1>
+            <Tabbuilder/>
+          </Layout>
+        </Container>
+    );
+  }
 }
 
 export default App;
