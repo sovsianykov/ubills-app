@@ -14,7 +14,7 @@ class Elektro extends Component {
 
     render() {
         return (
-            <div>
+            <Aoux>
                 <Table  striped bordered hover >
                     <thead>
                    <tr>
@@ -76,14 +76,23 @@ class Elektro extends Component {
                 <Form>
                     <Form.Row>
                         <Col>
-                            <Form.Control placeholder="First name" />
+                        <Form.Control id = 'id' placeholder="ID "   />
+                    </Col>
+                        <Col>
+                            <Form.Control id = 'm' placeholder="Month" />
                         </Col>
                         <Col>
-                            <Form.Control placeholder="Last name" />
+                            <Form.Control id= 'cv' placeholder="Current value "   />
+                        </Col>
+                        <Col>
+                            <Form.Control id= 'pv'  placeholder="Prev value" />
+                        </Col>
+                        <Col>
+                            <Form.Control  id= 'date'  type ='date'   />
                         </Col>
                     </Form.Row>
                 </Form>
-                </div>
+                </Aoux>
         )
     }
 
