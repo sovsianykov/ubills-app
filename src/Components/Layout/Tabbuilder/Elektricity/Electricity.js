@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { DataGrid } from '@material-ui/data-grid';
+import Aoux from "../../../../Hoc/Aoux";
 
 let calcpay = function (params) {
      return    (params.getValue('cv') - params.getValue('pv'))*params.getValue('tariff')
@@ -56,7 +57,9 @@ const rows = [
     { id: 12, month: 'dec', pv: 33470 , cv: 33500, tariff:  1.68 , date: '01-09-2018' },
 
 ];
-
+ const changed1 =(event)=>{
+console.log(rows[event.target.value])
+ }
 
 
 
@@ -66,10 +69,19 @@ const rows = [
 export default function DataGridElektricity() {
 
     return (
+        <Aoux>
         <div style={{ height: 400, width: '100%' }}>
             <DataGrid   rows={rows} columns={columns} pageSize={5} checkboxSelection
 
             onCellHover   enableCellSelect={true}             />
+
         </div>
+        <div>
+            <form >
+                <input type="text" onClick={changed1}/>
+            </form>
+        </div>
+        </Aoux>
+
     );
 }
