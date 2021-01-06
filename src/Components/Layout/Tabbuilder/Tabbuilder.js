@@ -1,6 +1,7 @@
 import React,{Component} from "react";
 import Aoux from "../../../Hoc/Aoux";
 import Elektro from "./Elektricity/Elektro";
+import Watter from "./Watter/Watter";
 class Tabbuilder extends Component {
 
     render() {
@@ -8,9 +9,14 @@ class Tabbuilder extends Component {
         return (
             <Aoux>
 
-                    <h2>Electricity bill </h2>
-                    <Elektro  />
 
+
+                    <div>
+                        <Watter/>
+                    </div>
+                    <div>
+                    <Elektro />
+                    </div>
             </Aoux>
         )
     }

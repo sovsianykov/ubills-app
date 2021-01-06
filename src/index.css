@@ -15,3 +15,16 @@ code {
 .Container {
   margin: 30px auto;
 }
+
+tr.edit  td {
+  border-bottom-color: red ;
+ background: antiquewhite;
+;
+ color :  red;
+}
+tr.editW  td {
+  border-bottom-color: red ;
+  background: #cef5fd;
+;
+  color :  red;
+}

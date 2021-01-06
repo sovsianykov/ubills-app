@@ -6,26 +6,25 @@ import {Col} from 'react-bootstrap'
 import Button from 'react-bootstrap/Button'
 
 
-import Cell from 'react-bootstrap'
 import Aoux from "../../../../Hoc/Aoux";
 
 
-class Elektro extends Component {
+class Watter extends Component {
 
     state = {
-        monthsEl : [
+        monthsW : [
             {id : 1,},
             {monthsel: ''},
             {preV: 0},
             {curV: 0},
-            {tariff: '1.68 UAH'} ,
+            {tariff: 1.68} ,
             {pay: 0},
             {date: ''},
             {id : 2},
             {monthsel: ''},
             {preV: 0},
             {curV: 0},
-            {tariff: '1.68 UAH'} ,
+            {tariff: 1.68} ,
             {pay: 0},
             {date: ''},
             {id : 3},
@@ -38,87 +37,87 @@ class Elektro extends Component {
 
         ]
     }
- saveHandler = ()=> {
-     const input = document.querySelectorAll('tr.edit td')
-      let pay = (parseInt(input[3].textContent) - parseInt(input[2].textContent))* 1.68
-           // this.state.monthsEl.unshift(0[,0[,0[,0,0,0,0)
+    saveHandlerW = ()=> {
+        const input1 = document.querySelectorAll('tr.editW td')
+        let pay = (parseInt(input1[3].textContent) - parseInt(input1[2].textContent))* 22.900
+        // this.state.monthsEl.unshift(0[,0[,0[,0,0,0,0)
 
-     this.setState((state) => {
-
-
-
-         return {
-                 monthsEl: [
-                     {id: input[0].textContent},
-                     {monthsel: input[1].textContent},
-                     {preV: input[2].textContent},
-                     {curV: input[3].textContent},
-                     {tariff: '1.68 UAH'},
-                     {pay: pay},
-                     {date: input[6].textContent}
-
-                 ]
-             }
+        this.setState((state) => {
 
 
-     }
-     )
+
+                return {
+                    monthsW: [
+                        {id: input1[0].textContent},
+                        {monthsel: input1[1].textContent},
+                        {preV: input1[2].textContent},
+                        {curV: input1[3].textContent},
+                        {tariff: '1.68'},
+                        {pay: pay},
+                        {date: input1[6].textContent}
+
+                    ]
+                }
 
 
- }
-    saveHandler2 =()=> {
+            }
+        )
 
 
-        this.state.monthsEl.unshift({id : 0},
-            {monthsel: 0},
-                {preV:0},
-                {curV: 0},
-                {tariff: '1.68 UAH'} ,
-                {pay: 0 },
-                {date: 0 }  )
-            console.log(this.state.monthsEl)
+    }
+    // saveHandler2 =()=> {
+
+        //
+        // this.state.monthsW.unshift({id : 0},
+        //     {monthsel: 0},
+        //     {preV:0},
+        //     {curV: 0},
+        //     {tariff: 1.68} ,
+        //     {pay: 0 },
+        //     {date: 0 }  )
+        // console.log(this.state.monthsW)
 
 
-        }
+    // }
 
     render() {
         return (
             <Aoux>
-                <h2>Electricity bill </h2>
+                <h2>Watter bill </h2>
                 <Table  bordered hover >
                     <thead>
-                   <tr>
+                    <tr>
 
-                       <th>ID</th>
-                       <th>Month</th>
-                       <th>Prev value</th>
-                       <th>Current value</th>
-                       <th>tariff ( for kwt/h)</th>
-                       <th>pay (uah) </th>
-                       <th>date</th>
-                   </tr>
+                        <th>ID</th>
+                        <th>Month</th>
+                        <th>Prev value</th>
+                        <th>Current value</th>
+                        <th>tariff ( for m/c)</th>
+                        <th>pay (uah) </th>
+                        <th>date</th>
+                    </tr>
                     </thead>
                     <tbody>
-                    <tr className= 'edit' >
+                    <tr className= 'editW' >
 
 
                         <td contentEditable/>
                         <td contentEditable/>
                         <td contentEditable/>
                         <td contentEditable/>
-                        <td >1.68 UAH</td>
+                        <td  >22.900 UAH</td>
 
                         <td contentEditable/>
                         <td><input type='date'/></td>
 
                     </tr><tr>
-                         <td>{this.state.monthsEl[0].id}</td>
-                         <td>{this.state.monthsEl[1].monthsel}</td>
-                        <td>{this.state.monthsEl[2].preV}</td>
-                        <td>{this.state.monthsEl[3].curV}</td>
-                        <td>1.68 UAH</td>
-                        <td>{this.state.monthsEl[5].pay}</td>
-                        <td>{this.state.monthsEl[6].date}</td>
+                        <td>{this.state.monthsW[0].id}</td>
+                        <td>{this.state.monthsW[1].monthsel}</td>
+                        <td>{this.state.monthsW[2].preV}</td>
+                        <td>{this.state.monthsW[3].curV}</td>
+                        <td>22.900 UAH</td>
+                        <td>{this.state.monthsW[5].pay}</td>
+                        <td>{this.state.monthsW[6].date}</td>
 
                     </tr><tr>
 
@@ -148,7 +147,7 @@ class Elektro extends Component {
                     <Form.Row>
 
                         <Col>
-                            <Button variant='outline-info' onClick = {this.saveHandler.bind(this)}  >SAVE THE MONTH</Button>
+                            <Button variant='outline-info' onClick = {this.saveHandlerW.bind(this)}  >SAVE THE MONTH</Button>
 
                         </Col>
                         <Col>
@@ -158,9 +157,9 @@ class Elektro extends Component {
                     </Form.Row>
                 </Form>
 
-                </Aoux>
+            </Aoux>
         )
     }
 
 }
-export default Elektro;
+export default Watter;
