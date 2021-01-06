@@ -2,6 +2,7 @@ import * as React from 'react';
 import { DataGrid } from '@material-ui/data-grid';
 import Aoux from "../../../../Hoc/Aoux";
 
+
 let calcpay = function (params) {
      return    (params.getValue('cv') - params.getValue('pv'))*params.getValue('tariff')
 

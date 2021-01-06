@@ -14,22 +14,35 @@ class Elektro extends Component {
 
     state = {
         monthsEl : [
-            {
-                completed : 'false',
-                id : 1,
-                monthsel : 'jan',
-                preV: 56,
-                curV: 53 ,
-                tariff : 1.68 ,
-                pay:  0,
-                date: ''
-            },
+            {id : 1,},
+            {monthsel: 'jan'},
+            {preV: 56},
+            {curV: 53},
+            {tariff: 1.68} ,
+            {pay: 0},
+            {date: ''}
+
         ]
     }
-  saveHandler = () => {
-        const input = document.querySelectorAll('input')
-      console.log(input[8].value)
-  }
+ saveHandler = ()=> {
+     const input = document.querySelectorAll('tr.edit td')
+
+     this.setState({
+         monthsEl : [
+             {id : input[0].textContent},
+             {monthsel: input[1].textContent},
+             {preV: input[2].textContent},
+             {curV: input[3].textContent},
+             {tariff: input[4].textContent} ,
+             {pay: input[5].textContent},
+             {date: input[6].textContent}
+
+         ]
+         }
+
+     )
+
+ }
 
     render() {
         return (
@@ -37,7 +50,7 @@ class Elektro extends Component {
                 <Table  striped bordered hover >
                     <thead>
                    <tr>
-                       <th><input type='checkbox'/></th>
+
                        <th>ID</th>
                        <th>Month</th>
                        <th>Prev value</th>
@@ -48,19 +61,28 @@ class Elektro extends Component {
                    </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td><input type='checkbox'/></td>
+                    <tr className= 'edit'>
+
+                        <td >input template</td>
+                         <td contentEditable/>
+                        <td contentEditable/>
+                        <td contentEditable/>
+                        <td contentEditable/>
+                        <td contentEditable/>
+                        <td><input type='date'/></td>
+
+                    </tr><tr>
                          <td>{this.state.monthsEl[0].id}</td>
-                         <td>{this.state.monthsEl[0].monthsel}</td>
-                        <td>{this.state.monthsEl[0].preV}</td>
-                        <td>{this.state.monthsEl[0].curV}</td>
-                        <td>{this.state.monthsEl[0].tariff}</td>
-                        <td>{this.state.monthsEl[0].pay}</td>
-                        <td>{this.state.monthsEl[0].date}</td>
+                         <td>{this.state.monthsEl[1].monthsel}</td>
+                        <td>{this.state.monthsEl[2].preV}</td>
+                        <td>{this.state.monthsEl[3].curV}</td>
+                        <td>1.68</td>
+                        <td>{this.state.monthsEl[4].pay}</td>
+                        <td>{this.state.monthsEl[5].pay}</td>
 
                     </tr><tr>
-                        <td><input type='checkbox'/></td>
-                         <td>2</td>
+
+                         <td>5</td>
                          <td>jan</td>
                         <td>0</td>
                         <td>0</td>
@@ -69,17 +91,6 @@ class Elektro extends Component {
                         <td><input type='date'/></td>
 
                     </tr><tr>
-                        <td><input type='checkbox'/></td>
-                         <td>3</td>
-                         <td>jan</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>1.68</td>
-                        <td>0</td>
-                        <td><input type='date'/></td>
-
-                    </tr><tr>
-                        <td><input type='checkbox'/></td>
                          <td>4</td>
                          <td>jan</td>
                         <td>0</td>
