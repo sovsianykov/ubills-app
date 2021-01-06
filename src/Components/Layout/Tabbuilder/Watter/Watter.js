@@ -36,6 +36,8 @@ class Watter extends Component {
   saveHandlerW = () => {
     const input1 = document.querySelectorAll("tr.editW td");
     const monW = document.querySelector("select ");
+    const dateW = document.querySelector("#dateW ");
+
 
     let pay =
       (parseInt(input1[3].textContent) - parseInt(input1[2].textContent)) *
@@ -51,7 +53,7 @@ class Watter extends Component {
           { curV: input1[3].textContent },
           { tariff: "1.68" },
           { pay: pay },
-          { date: input1[6].textContent },
+          { date: dateW.value },
         ],
       };
     });
@@ -113,7 +115,7 @@ class Watter extends Component {
 
               <td contentEditable />
               <td>
-                <input type="date" />
+                <input id='dateW' type="date" />
               </td>
             </tr>
             <tr>

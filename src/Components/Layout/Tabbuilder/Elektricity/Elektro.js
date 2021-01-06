@@ -36,6 +36,7 @@ class Elektro extends Component {
   saveHandler = () => {
     const input = document.querySelectorAll("tr.edit td");
     const mon = document.querySelector("select ");
+    const date = document.querySelector("#date ");
     let pay =
       (parseInt(input[3].textContent) - parseInt(input[2].textContent)) * 1.68;
     // this.state.monthsEl.unshift(0[,0[,0[,0,0,0,0)
@@ -49,7 +50,7 @@ class Elektro extends Component {
           { curV: input[3].textContent },
           { tariff: "1.68 UAH" },
           { pay: pay },
-          { date: input[6].textContent },
+          { date: date.value },
         ],
       };
     });
@@ -111,7 +112,7 @@ class Elektro extends Component {
 
               <td contentEditable />
               <td>
-                <input type="date" />
+                <input id='date' type="date" />
               </td>
             </tr>
             <tr>
