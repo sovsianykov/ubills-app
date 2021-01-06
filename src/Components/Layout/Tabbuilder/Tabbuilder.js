@@ -1,17 +1,22 @@
 import React,{Component} from "react";
-import DataGridElektricity from "./Elektricity/Electricity";
 import Aoux from "../../../Hoc/Aoux";
-import Card from '@material-ui/core/Card/Card/'
+import Elektro from "./Elektricity/Elektro";
+import Watter from "./Watter/Watter";
 class Tabbuilder extends Component {
 
     render() {
 
         return (
             <Aoux>
-                <Card>
-                    <h2>Electricity bill </h2>
-                    <DataGridElektricity  />
-                </Card>
+
+
+
+                    <div className='Builder'>
+                        <Watter/>
+                    </div>
+                    <div className='Builder'>
+                    <Elektro />
+                    </div>
             </Aoux>
         )
     }

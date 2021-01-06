@@ -11,9 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.MuiCard-root {
-  padding: 20px;
-  background: #ecc99b;
+
+.Container {
+  margin: 30px auto;
+}
+Table , Button ,Form, h1 ,h2 , .builder {
+  margin-top: 10px;
+}
+Form {
+  margin-bottom: 30px;
+}
 
 
+
+tr.edit  td {
+  border-bottom-color: red ;
+ background: antiquewhite;
+;
+ color :  red;
+}
+tr.editW  td {
+  border-bottom-color: red ;
+  background: #cef5fd;
+;
+  color :  red;
 }
