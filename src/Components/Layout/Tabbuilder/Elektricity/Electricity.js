@@ -14,7 +14,6 @@ const columns = [
         headerName: 'Current Value',
         type: 'number',
         width: 150,
-        editable: 'true'
     },
     {
         field: 'tariff',
@@ -57,19 +56,11 @@ const rows = [
 
 ];
 
-
-
-
-
-
-
 export default function DataGridElektricity() {
 
     return (
         <div style={{ height: 400, width: '100%' }}>
-            <DataGrid   rows={rows} columns={columns} pageSize={5} checkboxSelection
-
-            onCellHover   enableCellSelect={true}             />
+            <DataGrid   rows={rows} columns={columns} pageSize={5} checkboxSelection />
         </div>
     );
 }
