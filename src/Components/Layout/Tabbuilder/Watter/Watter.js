@@ -111,7 +111,7 @@ class Watter extends Component {
               </td>
               <td contentEditable />
               <td contentEditable />
-              <td>22.900 UAH</td>
+              <td>22.9 UAH</td>
 
               <td contentEditable />
               <td>
@@ -123,7 +123,7 @@ class Watter extends Component {
               <td>{this.state.monthsW[1].monthsel}</td>
               <td>{this.state.monthsW[2].preV}</td>
               <td>{this.state.monthsW[3].curV}</td>
-              <td>22.900 UAH</td>
+              <td>22.9 UAH</td>
               <td>{this.state.monthsW[5].pay}</td>
               <td>{this.state.monthsW[6].date}</td>
             </tr>
