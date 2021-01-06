@@ -42,7 +42,7 @@ class Watter extends Component {
       22.9;
     // this.state.monthsEl.unshift(0[,0[,0[,0,0,0,0)
 
-    this.setState((state) => {
+    this.setState(() => {
       return {
         monthsW: [
           { id: input1[0].textContent },

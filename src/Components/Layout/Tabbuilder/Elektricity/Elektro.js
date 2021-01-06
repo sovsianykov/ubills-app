@@ -5,7 +5,6 @@ import { Form } from "react-bootstrap";
 import { Col } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 
-import Cell from "react-bootstrap";
 import Aoux from "../../../../Hoc/Aoux";
 
 class Elektro extends Component {
@@ -41,7 +40,7 @@ class Elektro extends Component {
       (parseInt(input[3].textContent) - parseInt(input[2].textContent)) * 1.68;
     // this.state.monthsEl.unshift(0[,0[,0[,0,0,0,0)
 
-    this.setState((state) => {
+    this.setState(() => {
       return {
         monthsEl: [
           { id: input[0].textContent },
@@ -55,18 +54,18 @@ class Elektro extends Component {
       };
     });
   };
-  saveHandler2 = () => {
-    this.state.monthsEl.unshift(
-      { id: 0 },
-      { monthsel: 0 },
-      { preV: 0 },
-      { curV: 0 },
-      { tariff: "1.68 UAH" },
-      { pay: 0 },
-      { date: 0 }
-    );
-    console.log(this.state.monthsEl);
-  };
+  // saveHandler2 = () => {
+  //   this.state.monthsEl.unshift(
+  //     { id: 0 },
+  //     { monthsel: 0 },
+  //     { preV: 0 },
+  //     { curV: 0 },
+  //     { tariff: "1.68 UAH" },
+  //     { pay: 0 },
+  //     { date: 0 }
+  //   );
+  //   console.log(this.state.monthsEl);
+  // };
 
   render() {
     return (
