@@ -8,53 +8,7 @@ import Button from "react-bootstrap/Button";
 import Aoux from "../../../../Hoc/Aoux";
 
 class Elektro extends Component {
-  state = {
-    monthsEl: [
-      { id: 1 },
-      { monthsel: "" },
-      { preV: 0 },
-      { curV: 0 },
-      { tariff: "1.68 UAH" },
-      { pay: 0 },
-      { date: "" },
-      { id: 2 },
-      { monthsel: "" },
-      { preV: 0 },
-      { curV: 0 },
-      { tariff: "1.68 UAH" },
-      { pay: 0 },
-      { date: "" },
-      { id: 3 },
-      { monthsel: "" },
-      { preV: 0 },
-      { curV: 0 },
-      { tariff: 1.68 },
-      { pay: 0 },
-      { date: "" },
-    ],
-  };
-  saveHandler = () => {
-    const input = document.querySelectorAll("tr.edit td");
-    const mon = document.querySelector("select ");
-    const date = document.querySelector("#date ");
-    let pay =
-      (parseInt(input[3].textContent) - parseInt(input[2].textContent)) * 1.68;
-    // this.state.monthsEl.unshift(0[,0[,0[,0,0,0,0)
 
-    this.setState(() => {
-      return {
-        monthsEl: [
-          { id: input[0].textContent },
-          { monthsel: mon.value },
-          { preV: input[2].textContent },
-          { curV: input[3].textContent },
-          { tariff: "1.68 UAH" },
-          { pay: pay },
-          { date: date.value },
-        ],
-      };
-    });
-  };
   // saveHandler2 = () => {
   //   this.state.monthsEl.unshift(
   //     { id: 0 },
@@ -116,43 +70,20 @@ class Elektro extends Component {
               </td>
             </tr>
             <tr>
-              <td>{this.state.monthsEl[0].id}</td>
-              <td>{this.state.monthsEl[1].monthsel}</td>
-              <td>{this.state.monthsEl[2].preV}</td>
-              <td>{this.state.monthsEl[3].curV}</td>
+              <td>{this.props.id}</td>
+              <td>{this.props.monthsel}</td>
+              <td>{this.props.preV}</td>
+              <td>{this.props.curV}</td>
               <td>1.68 UAH</td>
-              <td>{this.state.monthsEl[5].pay}</td>
-              <td>{this.state.monthsEl[6].date}</td>
-            </tr>
-            <tr>
-              {/*<td>{this.state.monthsEl[0].id}</td>*/}
-              {/*<td>{this.state.monthsEl[8].monthsel}</td>*/}
-              {/*<td>{this.state.monthsEl[9].preV}</td>*/}
-              {/*<td>{this.state.monthsEl[10].curV}</td>*/}
-              {/*<td>1.68</td>*/}
-              {/*<td>{this.state.monthsEl[11].pay}</td>*/}
-              {/*<td>{this.state.monthsEl[12].date}</td>*/}
-            </tr>
-            <tr>
-              {/* <td>4</td>*/}
-              {/* <td>jan</td>*/}
-              {/*<td>0</td>*/}
-              {/*<td>0</td>*/}
-              {/*<td>1.68</td>*/}
-              {/*<td>0</td>*/}
-              {/*<td><input type='date'/></td>*/}
+              <td>{this.props.pay}</td>
+              <td>{this.props.date}</td>
             </tr>
           </tbody>
         </Table>
         <Form>
           <Form.Row>
             <Col>
-              <Button
-                variant="outline-info"
-                onClick={this.saveHandler.bind(this)}
-              >
-                SAVE THE MONTH
-              </Button>
+
             </Col>
             <Col>
               {/*<Button variant='outline-info' onClick = {this.saveHandler2.bind(this)}  >SAVE </Button>*/}
