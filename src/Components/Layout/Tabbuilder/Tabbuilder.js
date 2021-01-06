@@ -11,10 +11,10 @@ class Tabbuilder extends Component {
 
 
 
-                    <div>
+                    <div className='Builder'>
                         <Watter/>
                     </div>
-                    <div>
+                    <div className='Builder'>
                     <Elektro />
                     </div>
             </Aoux>
