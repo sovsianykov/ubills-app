@@ -15,7 +15,7 @@ code {
 .Container {
   margin: 30px auto;
 }
-Table , Button ,Form, h1 ,h2 ,Aoux , .builder {
+Table , Button ,Form, h1 ,h2 , .builder {
   margin-top: 10px;
 }
 Form {
