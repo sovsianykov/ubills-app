@@ -3,7 +3,7 @@ import Aoux from '../../../Hoc/Aoux';
 
 const Tabblebuilderlayout = (props) =>(
     <Aoux>
-        <main className = 'Tabblebuilder '>
+        <main className = 'Xmlbuilder '>
             {props.children}
 
         </main>

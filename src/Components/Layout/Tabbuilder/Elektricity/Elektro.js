@@ -3,24 +3,11 @@ import Table from "react-bootstrap/Table";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form } from "react-bootstrap";
 import { Col } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-
 import Aoux from "../../../../Hoc/Aoux";
 
 class Elektro extends Component {
 
-  // saveHandler2 = () => {
-  //   this.state.monthsEl.unshift(
-  //     { id: 0 },
-  //     { monthsel: 0 },
-  //     { preV: 0 },
-  //     { curV: 0 },
-  //     { tariff: "1.68 UAH" },
-  //     { pay: 0 },
-  //     { date: 0 }
-  //   );
-  //   console.log(this.state.monthsEl);
-  // };
+
 
   render() {
     return (
@@ -63,8 +50,9 @@ class Elektro extends Component {
               <td contentEditable />
               <td contentEditable />
               <td>1.68 UAH</td>
+              <td >
 
-              <td contentEditable />
+              </td>
               <td>
                 <input id='date' type="date" />
               </td>

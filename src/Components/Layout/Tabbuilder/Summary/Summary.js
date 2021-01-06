@@ -5,13 +5,16 @@ class Summary extends Component {
   render() {
     return (
       <Aoux>
+        <h2 id="s">Summary</h2>
         <Table className="summ">
           <thead>
             <tr>
               <th rowSpan="2">month</th>
               <th colSpan="2">Electricity</th>
               <th colSpan="2">Watter</th>
-              <th rowSpan="2">Total paid</th>
+              <th rowSpan="2" colSpan="3">
+                Total paid
+              </th>
             </tr>
             <tr>
               <th>for pay</th>
@@ -26,10 +29,15 @@ class Summary extends Component {
 
               <td>{this.props.pay} </td>
               <td>{this.props.date} </td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>{this.props.payW}</td>
+              <td>{this.props.dateW}</td>
+              <td id="t">{this.props.total} UAH</td>
+              <td>
+
+              </td>
+              <td>
+
+              </td>
             </tr>
           </tbody>
         </Table>
