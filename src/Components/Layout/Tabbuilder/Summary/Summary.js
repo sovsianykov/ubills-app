@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import Table from "react-bootstrap/Table";
-import Aoux from "../../../../Hoc/Aoux";
+
 class Summary extends Component {
   render() {
     return (
-      <Aoux>
+      <div>
         <h2 id="s">Summary</h2>
         <Table className="summ">
           <thead>
@@ -41,7 +41,7 @@ class Summary extends Component {
             </tr>
           </tbody>
         </Table>
-      </Aoux>
+      </div>
     );
   }
 }
