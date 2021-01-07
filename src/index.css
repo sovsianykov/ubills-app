@@ -20,6 +20,7 @@ code {
   border: .1rem solid #eeeded;
   padding: 20px;
   height: 100vh;
+  background: #fdfcfc;
 }
 main.Xmlbuilder {
   display: flex;
