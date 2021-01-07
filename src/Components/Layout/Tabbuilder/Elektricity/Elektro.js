@@ -12,9 +12,15 @@ class Elektro extends Component {
   render() {
     return (
       <Aoux>
-        <h2>Electricity bill </h2>
-        <Table bordered hover>
+        <Table className = 'electro' bordered hover>
           <thead>
+            <tr >
+
+              <th colSpan='7'>
+                <h3>Electricity bill </h3>
+
+              </th>
+            </tr>
             <tr>
               <th>ID</th>
               <th>Month</th>

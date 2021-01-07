@@ -8,8 +8,8 @@ import Button from "react-bootstrap/Button";
 class Tabbuilder extends Component {
     total = 0
     state = {
-        monthsEl: [
-            { id: 1 },
+        monthsEl:[ [
+            { id: Date.now() + Math.random() },
             { monthsel: "" },
             { preV: 0 },
             { curV: 0 },
@@ -17,7 +17,17 @@ class Tabbuilder extends Component {
             { pay: 0 },
             { date: "" }
 
-        ],
+        ] ],
+        monthsEl1 : [[
+            { id:  Date.now() + Math.random()},
+            { monthsel: '' },
+            { preV: 'wait' },
+            { curV: 'wait' },
+            { tariff: "1.68 UAH" },
+            { pay: '0' },
+            { date: '' },
+        ]  ],
+
         monthsW: [
             { idW: 1 },
             { monthseW: "" },
@@ -41,7 +51,7 @@ class Tabbuilder extends Component {
 
         this.setState(() => {
             return {
-                monthsEl: [
+                monthsEl1 : [[
                     { id: input[0].textContent },
                     { monthsel: mon.value },
                     { preV: input[2].textContent },
@@ -49,9 +59,12 @@ class Tabbuilder extends Component {
                     { tariff: "1.68 UAH" },
                     { pay: pay },
                     { date: date.value },
-                ],
-            };
+                ]  ]
+            }
         });
+         this.state.monthsEl.push(this.state.monthsEl1[0])
+
+
     };
     saveHandlerW = () => {
         const input1 = document.querySelectorAll("tr.editW td");
@@ -88,13 +101,23 @@ class Tabbuilder extends Component {
         return (
             <Aoux>
                 <TabbuilderLayout>
-                    <Elektro id = { this.state.monthsEl[0].id}
-                             monthsel = { this.state.monthsEl[1].monthsel}
-                             preV = { this.state.monthsEl[2].preV}
-                             curV= { this.state.monthsEl[3].curV}
-                             tariff = { this.state.monthsEl[4].tariff}
-                             pay = { this.state.monthsEl[5].pay}
-                             date = { this.state.monthsEl[6].date}  />
+                     {this.state.monthsEl.map(month => {
+                         return <Elektro
+                             key = {month[0].id}
+
+                             monthsel = { month[1].monthsel}
+                             preV = { month[2].preV}
+                             curV= { month[3].curV}
+                             tariff = { month[4].tariff}
+                             pay = { month[5].pay}
+                             date = { month[6].date}
+
+
+
+
+                         />
+
+                    }) }
                     <Button
                         variant="outline-info"
                         onClick={this.saveHandler.bind(this)}
@@ -103,10 +126,10 @@ class Tabbuilder extends Component {
                     </Button>
                     <Watter
                         idW = { this.state.monthsW[0].idW}
-                        monthseW = { this.state.monthsEl[1].monthsel}
+                        monthseW = { this.state.monthsW[1].monthseW}
                         preW = { this.state.monthsW[2].preW}
                         curW= { this.state.monthsW[3].curW}
-                        tariff = { this.state.monthsEl[4].tariff}
+                        tariff = { this.state.monthsW[4].tariff}
                         payW = { this.state.monthsW[5].payW}
                         dateW = { this.state.monthsW[6].dateW}  />
                     <Button
@@ -116,9 +139,9 @@ class Tabbuilder extends Component {
                         SAVE THE MONTH
                     </Button>
                     <Summary
-                             monthsel = { this.state.monthsEl[1].monthsel}
-                             pay = { this.state.monthsEl[5].pay}
-                             date = { this.state.monthsEl[6].date}
+                             monthsel = { this.state.monthsEl[0][1].monthsel}
+                             pay = { this.state.monthsEl[0][5].pay}
+                             date = { this.state.monthsEl[0][6].date}
                              payW = { this.state.monthsW[5].payW}
                              dateW = { this.state.monthsW[6].dateW}
                              total = {this.total}

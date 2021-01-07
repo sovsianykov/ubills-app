@@ -5,10 +5,17 @@ class Summary extends Component {
   render() {
     return (
       <div>
-        <h2 id="s">Summary</h2>
+
         <Table className="summ">
           <thead>
-            <tr>
+          <tr >
+
+            <th colSpan='7'>
+              <h3 id="s">Summary</h3>
+
+            </th>
+          </tr>
+          <tr>
               <th rowSpan="2">month</th>
               <th colSpan="2">Electricity</th>
               <th colSpan="2">Watter</th>

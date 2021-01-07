@@ -8,9 +8,15 @@ class Watter extends Component {
   render() {
     return (
       <Aoux>
-        <h2>Watter bill </h2>
         <Table bordered hover>
           <thead>
+          <tr >
+
+            <th colSpan='7'>
+              <h3>Watter bill  </h3>
+
+            </th>
+          </tr>
             <tr>
               <th>ID</th>
               <th>Month</th>
