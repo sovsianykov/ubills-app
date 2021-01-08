@@ -16,8 +16,9 @@ class Tabbuilder extends Component {
         { tariff: '' },
         { pay: ''},
         { date:'' },
-    ]  ]
-    state = {
+    ]  ];
+
+    stateW = {
         monthsEl:[ [
             { id: Date.now() + Math.random() },
             { monthsel: "" },
@@ -67,7 +68,7 @@ class Tabbuilder extends Component {
             { tariff: "1.68 UAH" },
             { pay: pay },
             { date: date.value },
-        ]
+        ];
 
         this.setState(() => {
             return {
@@ -82,31 +83,12 @@ class Tabbuilder extends Component {
                 ]  ]
             }
         })
-        this.state.monthsEl.push(this.state.monthsEl1[0])
-        // this.store.push(this.state.monthsEl1[0])
-
-        console.log(this.store)
 
 
 
 
     }
-    controlSave =()=> {
-        this.setState(() => {
-            return {
-                monthsEl1 : [[
-                    { id: 0 },
-                    { monthsel:0  },
-                    { preV: 0 },
-                    { curV: 0 },
-                    { tariff: "1.68 UAH" },
-                    { pay: 0},
-                    { date:0 },
-                ]  ]
-            }
-        })
-        this.state.monthsEl.push(this.state.monthsEl1[0])
-    }
+
     saveHandlerW = () => {
         const input1 = document.querySelectorAll("tr.editW td");
         const monW = document.querySelector("select ");
@@ -118,6 +100,16 @@ class Tabbuilder extends Component {
             22.9);
         if (isNaN(payW)) { payW = 'please input correct values'}
         this.total += payW
+        let i = this.storeW.length
+        this.storeW[i] = [
+            { id: Date.now() + Math.random() },
+            { monthsel: monW.value },
+            { preV: input1[2].textContent },
+            { curV: input1[3].textContent },
+            { tariff: "1.68 UAH" },
+            { pay: payW },
+            { date: dateW.value },
+        ];
 
         this.setState(() => {
             return {
@@ -143,11 +135,7 @@ class Tabbuilder extends Component {
             <Aoux>
                 <TabbuilderLayout>
                     <Summary
-                        monthsel = { this.store[0][1].monthsel}
-                        pay = { this.store[0][5].pay}
-                        date = { this.state.monthsEl[0][6].date}
-                        payW = { this.state.monthsW[5].payW}
-                        dateW = { this.state.monthsW[6].dateW}
+
                         total = {this.total}
                     />
                     <Table className = 'electro' bordered hover>
@@ -222,14 +210,14 @@ class Tabbuilder extends Component {
                     >
                         SET THE MONTH
                     </Button>
-                    <Watter
-                        idW = { this.state.monthsW[0].idW}
-                        monthseW = { this.state.monthsW[1].monthseW}
-                        preW = { this.state.monthsW[2].preW}
-                        curW= { this.state.monthsW[3].curW}
-                        tariff = { this.state.monthsW[4].tariff}
-                        payW = { this.state.monthsW[5].payW}
-                        dateW = { this.state.monthsW[6].dateW}  />
+                    {/*<Watter*/}
+                    {/*    idW = { this.state.monthsW[0].idW}*/}
+                    {/*    monthseW = { this.state.monthsW[1].monthseW}*/}
+                    {/*    preW = { this.state.monthsW[2].preW}*/}
+                    {/*    curW= { this.state.monthsW[3].curW}*/}
+                    {/*    tariff = { this.state.monthsW[4].tariff}*/}
+                    {/*    payW = { this.state.monthsW[5].payW}*/}
+                    {/*    dateW = { this.state.monthsW[6].dateW}  />*/}
                     <Button
                         variant="outline-info"
                         onClick={this.saveHandlerW.bind(this)}
