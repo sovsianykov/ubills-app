@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-import Table from "react-bootstrap/Table";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Form } from "react-bootstrap";
-import { Col } from "react-bootstrap";
 import Aoux from "../../../../Hoc/Aoux";
 
 class Elektro extends Component {

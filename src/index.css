@@ -19,7 +19,7 @@ code {
 .Content {
   border: .1rem solid #eeeded;
   padding: 20px;
-  height: 100vh;
+  /*height: 100vh;*/
   position: relative;
 }
 main.Xmlbuilder {
@@ -57,18 +57,21 @@ tr.edit  td {
 ;
  color :  red;
 }
-tr.editW  td {
+tr.editw  td {
   border-bottom-color: red ;
   background: #cef5fd;
 ;
   color :  red;
 }
-Table.electro {
+#electro {
   border: 1px solid #cbcbcb;
   border-radius: 10px ;
   padding: 10px;
 
 }
-Table.electro tbody tr:nth-child(2)  {
+#electro tbody tr:nth-child(2)  {
+  display: none;
+}
+#watter tbody tr:nth-child(2)  {
   display: none;
 }
