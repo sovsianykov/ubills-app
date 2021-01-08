@@ -8,7 +8,7 @@ import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/Table";
 class Tabbuilder extends Component {
   total = 0;
-  store = [
+store = [
     [
       { id: "" },
       { monthsel: "" },
@@ -17,8 +17,21 @@ class Tabbuilder extends Component {
       { tariff: "" },
       { pay: "" },
       { date: "" },
-    ],
-  ];
+    ]
+  ]
+  componentDidMount() {
+
+    if (localStorage.getItem('storedstore')) {
+      this.store = JSON.parse(localStorage.getItem('storedstore')) }
+
+
+
+  }
+
+
+
+
+
 
   state = {
     monthsEl: [
@@ -144,6 +157,11 @@ class Tabbuilder extends Component {
       };
     });
   };
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    localStorage.setItem("storedstore", JSON.stringify(this.store));
+    localStorage.setItem("storedstoreW", JSON.stringify(this.storeW));
+  }
+
 
   render() {
     return (
