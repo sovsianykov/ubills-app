@@ -17,6 +17,16 @@ class Tabbuilder extends Component {
         { pay: ''},
         { date:'' },
     ]  ];
+    storeW = [[
+        { id: '' },
+        { monthsel:''  },
+        { preV: '' },
+        { curV: '' },
+        { tariff: '' },
+        { pay: ''},
+        { date:'' },
+    ]  ];
+
 
     stateW = {
         monthsEl:[ [
@@ -83,14 +93,10 @@ class Tabbuilder extends Component {
                 ]  ]
             }
         })
-
-
-
-
     }
 
     saveHandlerW = () => {
-        const input1 = document.querySelectorAll("tr.editW td");
+        const input1 = document.querySelector("tr.editW td");
         const monW = document.querySelector("select ");
         const dateW = document.querySelector("#dateW ");
 
