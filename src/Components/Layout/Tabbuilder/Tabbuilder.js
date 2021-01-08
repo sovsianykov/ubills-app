@@ -18,11 +18,24 @@ store = [
       { pay: "" },
       { date: "" },
     ]
-  ]
+  ];
+  storeW = [
+    [
+      { idW: "" },
+      { monthseW: "" },
+      { preW: "" },
+      { curW: "" },
+      { tariffW: "" },
+      { payW: "" },
+      { dateW: "" },
+    ],
+  ];
   componentDidMount() {
 
     if (localStorage.getItem('storedstore')) {
-      this.store = JSON.parse(localStorage.getItem('storedstore')) }
+      this.store = JSON.parse(localStorage.getItem('storedstore'))
+      this.storeW = JSON.parse(localStorage.getItem('storedstoreW'))
+    }
 
 
 
@@ -106,17 +119,7 @@ store = [
       };
     });
   };
-  storeW = [
-    [
-      { idW: "" },
-      { monthseW: "" },
-      { preW: "" },
-      { curW: "" },
-      { tariffW: "" },
-      { payW: "" },
-      { dateW: "" },
-    ],
-  ];
+
 
   saveHandlerW = () => {
     const input1 = document.querySelectorAll(".editW");
