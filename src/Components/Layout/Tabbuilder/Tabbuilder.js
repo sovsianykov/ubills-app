@@ -5,8 +5,18 @@ import Watter from "./Watter/Watter";
 import TabbuilderLayout from "./TabbuilderLayout";
 import Summary from "./Summary/Summary";
 import Button from "react-bootstrap/Button";
+import Table from "react-bootstrap/Table";
 class Tabbuilder extends Component {
     total = 0
+    store = [[
+        { id: '' },
+        { monthsel:''  },
+        { preV: '' },
+        { curV: '' },
+        { tariff: '' },
+        { pay: ''},
+        { date:'' },
+    ]  ]
     state = {
         monthsEl:[ [
             { id: Date.now() + Math.random() },
@@ -40,14 +50,24 @@ class Tabbuilder extends Component {
         ]
     };
     saveHandler = () => {
-        const input = document.querySelectorAll("tr.edit td");
-        const mon = document.querySelector("select ")[1];
-        const date = document.querySelector("#date ");
+        const input = document.querySelectorAll("tr.edit td")
+        const mon = document.querySelector("#el-select ")
+        const date = document.querySelector("#date ")
         let pay =
        Math.floor((parseInt(input[3].textContent) - parseInt(input[2].textContent)) * 1.68)
         if (isNaN(pay)) { pay = 'please input correct values'}
 
         this.total += pay
+         let i = this.store.length
+        this.store[i] = [
+            { id: Date.now() + Math.random() },
+            { monthsel: mon.value },
+            { preV: input[2].textContent },
+            { curV: input[3].textContent },
+            { tariff: "1.68 UAH" },
+            { pay: pay },
+            { date: date.value },
+        ]
 
         this.setState(() => {
             return {
@@ -61,11 +81,32 @@ class Tabbuilder extends Component {
                     { date: date.value },
                 ]  ]
             }
-        });
-         this.state.monthsEl.push(this.state.monthsEl1[0])
+        })
+        this.state.monthsEl.push(this.state.monthsEl1[0])
+        // this.store.push(this.state.monthsEl1[0])
+
+        console.log(this.store)
 
 
-    };
+
+
+    }
+    controlSave =()=> {
+        this.setState(() => {
+            return {
+                monthsEl1 : [[
+                    { id: 0 },
+                    { monthsel:0  },
+                    { preV: 0 },
+                    { curV: 0 },
+                    { tariff: "1.68 UAH" },
+                    { pay: 0},
+                    { date:0 },
+                ]  ]
+            }
+        })
+        this.state.monthsEl.push(this.state.monthsEl1[0])
+    }
     saveHandlerW = () => {
         const input1 = document.querySelectorAll("tr.editW td");
         const monW = document.querySelector("select ");
@@ -101,28 +142,85 @@ class Tabbuilder extends Component {
         return (
             <Aoux>
                 <TabbuilderLayout>
-                     {this.state.monthsEl.map(month => {
-                         return <Elektro
-                             key = {month[0].id}
+                    <Summary
+                        monthsel = { this.store[0][1].monthsel}
+                        pay = { this.store[0][5].pay}
+                        date = { this.state.monthsEl[0][6].date}
+                        payW = { this.state.monthsW[5].payW}
+                        dateW = { this.state.monthsW[6].dateW}
+                        total = {this.total}
+                    />
+                    <Table className = 'electro' bordered hover>
+                        <thead>
+                        <tr >
 
-                             monthsel = { month[1].monthsel}
-                             preV = { month[2].preV}
-                             curV= { month[3].curV}
-                             tariff = { month[4].tariff}
-                             pay = { month[5].pay}
-                             date = { month[6].date}
+                            <th colSpan='7'>
+                                <h3>Electricity bill </h3>
 
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>ID</th>
+                            <th>Month</th>
+                            <th>Prev value</th>
+                            <th>Current value</th>
+                            <th>tariff ( for kwt/h)</th>
+                            <th>pay (uah) </th>
+                            <th>date</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr className="edit">
+                            <td contentEditable />
 
+                            <td>
+                                <select id='el-select'>
+                                    <option value="jnv" defaultValue="jnv">
+                                        jnv
+                                    </option>
+                                    <option value="feb">feb</option>
+                                    <option value="march">march</option>
+                                    <option value="apr">apr</option>
+                                    <option value="may">may</option>
+                                    <option value="jun">jun</option>
+                                    <option value="jul">jul</option>
+                                    <option value="aou">aou</option>
+                                    <option value="sep">sep</option>
+                                    <option value="oct">oct</option>
+                                    <option value="nov">nov</option>
+                                    <option value="dec">dec</option>
+                                </select>
+                            </td>
+                            <td contentEditable />
+                            <td contentEditable />
+                            <td>1.68 UAH</td>
+                            <td >
 
+                            </td>
+                            <td>
+                                <input id='date' type="date" />
+                            </td>
+                        </tr>
+                        {this.store.map(month => {
+                            return <Elektro
+                                key = {month[0].id}
+                                monthsel = { month[1].monthsel}
+                                preV = { month[2].preV}
+                                curV= { month[3].curV}
+                                tariff = { month[4].tariff}
+                                pay = { month[5].pay}
+                                date = { month[6].date}
+                            />
+                        }) }
 
-                         />
+                        </tbody>
+                    </Table>
 
-                    }) }
-                    <Button
+                    <Button id = 'elBtn'
                         variant="outline-info"
                         onClick={this.saveHandler.bind(this)}
                     >
-                        SAVE THE MONTH
+                        SET THE MONTH
                     </Button>
                     <Watter
                         idW = { this.state.monthsW[0].idW}
@@ -138,17 +236,6 @@ class Tabbuilder extends Component {
                     >
                         SAVE THE MONTH
                     </Button>
-                    <Summary
-                             monthsel = { this.state.monthsEl[0][1].monthsel}
-                             pay = { this.state.monthsEl[0][5].pay}
-                             date = { this.state.monthsEl[0][6].date}
-                             payW = { this.state.monthsW[5].payW}
-                             dateW = { this.state.monthsW[6].dateW}
-                             total = {this.total}
-                    />
-
-
-
                 </TabbuilderLayout>
             </Aoux>
         )
