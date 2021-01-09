@@ -179,7 +179,7 @@ class Tabbuilder extends Component {
           >
             enter
           </Button>
-          <div className="enter ">
+          <div className="enter none  ">
             <Summary total={this.total} />
             <Table id="electro" bordered hover>
               <thead>
@@ -223,7 +223,9 @@ class Tabbuilder extends Component {
                   <td className="elinput" contentEditable />
                   <td className="elinput" contentEditable />
                   <td>1.68 UAH</td>
-                  <td></td>
+                  <td>
+
+                  </td>
                   <td>
                     <input className="elinput" id="date" type="date" />
                   </td>

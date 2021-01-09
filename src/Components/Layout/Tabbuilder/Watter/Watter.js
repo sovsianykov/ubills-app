@@ -10,8 +10,8 @@ class Watter extends Component {
         <tr>
           <td>{this.props.idW}</td>
           <td>{this.props.monthseW}</td>
-          <td>{this.props.preW}</td>
-          <td>{this.props.curW}</td>
+          <td className='fin'>{this.props.preW}</td>
+          <td className='fin'>{this.props.curW}</td>
           <td>22.9 UAH</td>
           <td>{this.props.payW}</td>
           <td>{this.props.dateW}</td>

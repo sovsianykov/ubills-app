@@ -12,8 +12,8 @@ class Elektro extends Component {
              <tr>
               <td>{this.props.id}</td>
               <td>{this.props.monthsel}</td>
-              <td>{this.props.preV}</td>
-              <td>{this.props.curV}</td>
+              <td className='fin'>{this.props.preV}</td>
+              <td className='fin'>{this.props.curV}</td>
               <td>{this.props.tariff}</td>
               <td>{this.props.pay}</td>
               <td>{this.props.date}</td>

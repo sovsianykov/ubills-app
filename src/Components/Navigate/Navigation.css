@@ -5,17 +5,29 @@
 }
 .Main li {
     display: inline-block;
-    margin: 20px;
+    margin: 40px;
 }
 .Main a {
     color: black;
     text-decoration: none;
-
+    display: block;
 }
-.Main {
+.Main a {
+    width: 15px;
+    height: 20px;
+    display: block;
+}
+
+.Main h1 {
+    margin-top: 30px;
+}
+.Main header#nav {
     text-align: center;
     font-size: 1.2rem;
     font-weight: 600;
+}
+Button {
+    margin-bottom: 20px;
 }
 .Main a:hover ,
 .Main a:active  {

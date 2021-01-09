@@ -13,12 +13,13 @@ code {
 }
 
 .Container {
-  margin: 30px auto;
-  max-width: 1100px;
+  margin: 0px auto;
+  max-width: 1300px;
 }
 .Content {
+  width: 100%;
   border: .1rem solid #eeeded;
-  padding: 20px;
+  padding: 0 20px;
   /*height: 100vh;*/
   position: relative;
 }
@@ -26,6 +27,9 @@ main.Xmlbuilder {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.summ  tr , .summ  tr td {
+  border: none;
 }
  h2  {
   padding-top: 10px;
@@ -48,19 +52,36 @@ Button {
 /*  top: 330px;*/
 /*  right: 40px;*/
 /*}*/
-
+Table {
+  margin: 0 auto;
+  width: 100%;
+}
 
 
 tr.edit  td {
   border-bottom-color: red ;
- background: antiquewhite;
+  background: #fdfdfb;
+
+  opacity: 1;
 ;
  color :  red;
 }
+tr   td.fin , tr td.elinput{
+  background: #fdfdfb;
+  transition: .5s;
+}
+tr td.elinput:hover,
+ tr td.fin:hover {
+   background: #faebd7;
+   cursor: pointer;
+
+}
+
+
 tr.editw  td {
   border-bottom-color: red ;
   background: #cef5fd;
-;
+ opacity: 1;
   color :  red;
 }
 #electro {
@@ -78,4 +99,17 @@ tr.editw  td {
 .none {
 
   display: none;
+}
+.im {
+  width: 50px;
+  height: 50px;
+  margin: 0px auto;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+h1 {
+  text-align: center;
 }

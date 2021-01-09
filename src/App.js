@@ -32,7 +32,7 @@ class App extends Component {
         <BrowserRouter  >
             <Container>
           <Layout>
-            <h1>my U-Bills</h1>
+
               <MyLinks/>
             {/*<Tabbuilder/> */}
             {/*    <Invoice/>*/}
