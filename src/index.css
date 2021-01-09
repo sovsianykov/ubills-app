@@ -75,3 +75,7 @@ tr.editw  td {
 #watter tbody tr:nth-child(2)  {
   display: none;
 }
+.none {
+
+  display: none;
+}

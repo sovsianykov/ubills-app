@@ -8,7 +8,7 @@ import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/Table";
 class Tabbuilder extends Component {
   total = 0;
-store = [
+  store = [
     [
       { id: "" },
       { monthsel: "" },
@@ -17,7 +17,7 @@ store = [
       { tariff: "" },
       { pay: "" },
       { date: "" },
-    ]
+    ],
   ];
   storeW = [
     [
@@ -31,20 +31,12 @@ store = [
     ],
   ];
   componentDidMount() {
-
-    if (localStorage.getItem('storedstore')) {
-      this.store = JSON.parse(localStorage.getItem('storedstore'))
-      this.storeW = JSON.parse(localStorage.getItem('storedstoreW'))
+    if (localStorage.getItem("storedtotal")) {
+      this.store = JSON.parse(localStorage.getItem("storedstore"));
+      this.storeW = JSON.parse(localStorage.getItem("storedstoreW"));
+      this.total = JSON.parse(localStorage.getItem("storedtotal"));
     }
-
-
-
   }
-
-
-
-
-
 
   state = {
     monthsEl: [
@@ -119,7 +111,17 @@ store = [
       };
     });
   };
-
+  enterHandler = () => {
+    const enter = document.querySelector(".enter");
+    const eBtn = document.querySelector("#enter-btn");
+    eBtn.className = "none";
+    enter.classList.remove("none");
+    this.setState(() => {
+      return {
+        monthsEl1: [[{ id: 0 }]],
+      };
+    });
+  };
 
   saveHandlerW = () => {
     const input1 = document.querySelectorAll(".editW");
@@ -163,152 +165,160 @@ store = [
   componentDidUpdate(prevProps, prevState, snapshot) {
     localStorage.setItem("storedstore", JSON.stringify(this.store));
     localStorage.setItem("storedstoreW", JSON.stringify(this.storeW));
+    localStorage.setItem("storedtotal", JSON.stringify(this.total));
   }
-
 
   render() {
     return (
       <Aoux>
         <TabbuilderLayout>
-          <Summary total={this.total} />
-          <Table id="electro" bordered hover>
-            <thead>
-              <tr>
-                <th colSpan="7">
-                  <h3>Electricity bill </h3>
-                </th>
-              </tr>
-              <tr>
-                <th>ID</th>
-                <th>Month</th>
-                <th>Prev value</th>
-                <th>Current value</th>
-                <th>tariff ( for kwt/h)</th>
-                <th>pay (uah) </th>
-                <th>date</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="edit">
-                <td className="elinput" contentEditable />
-
-                <td>
-                  <select id="el-select">
-                    <option value="jnv" defaultValue="jnv">
-                      jnv
-                    </option>
-                    <option value="feb">feb</option>
-                    <option value="march">march</option>
-                    <option value="apr">apr</option>
-                    <option value="may">may</option>
-                    <option value="jun">jun</option>
-                    <option value="jul">jul</option>
-                    <option value="aou">aou</option>
-                    <option value="sep">sep</option>
-                    <option value="oct">oct</option>
-                    <option value="nov">nov</option>
-                    <option value="dec">dec</option>
-                  </select>
-                </td>
-                <td className="elinput" contentEditable />
-                <td className="elinput" contentEditable />
-                <td>1.68 UAH</td>
-                <td>
-
-                </td>
-                <td>
-                  <input className="elinput" id="date" type="date" />
-                </td>
-              </tr>
-              {this.store.map((month) => {
-                return (
-                  <Elektro
-                    key={month[0].id}
-                    monthsel={month[1].monthsel}
-                    preV={month[2].preV}
-                    curV={month[3].curV}
-                    tariff={month[4].tariff}
-                    pay={month[5].pay}
-                    date={month[6].dateW}
-                  />
-                );
-              })}
-            </tbody>
-          </Table>
           <Button
-            id="elBtn"
-            variant="outline-info"
-            onClick={this.saveHandler.bind(this)}
+            onClick={this.enterHandler.bind(this)}
+            id="enter-btn"
+            variant="info"
           >
-            SET THE MONTH
+            enter
           </Button>
-          <Table id="watter" bordered hover>
-            <thead>
-              <tr>
-                <th colSpan="7">
-                  <h3>Watter bill </h3>
-                </th>
-              </tr>
-              <tr>
-                <th>ID</th>
-                <th>Month</th>
-                <th>Prev value</th>
-                <th>Current value</th>
-                <th>tariff ( for m/c)</th>
-                <th>pay (uah) </th>
-                <th>date</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="editw">
-                <td className="editW" contentEditable />
-                <td>
-                  <select name="select">
-                    <option value="jnv" defaultValue="jnv">
-                      jnv
-                    </option>
-                    <option value="feb">feb</option>
-                    <option value="march">march</option>
-                    <option value="apr">apr</option>
-                    <option value="may">may</option>
-                    <option value="jun">jun</option>
-                    <option value="jul">jul</option>
-                    <option value="aou">aou</option>
-                    <option value="sep">sep</option>
-                    <option value="oct">oct</option>
-                    <option value="nov">nov</option>
-                    <option value="dec">dec</option>
-                  </select>
-                </td>
-                <td className="editW" contentEditable />
-                <td className="editW" contentEditable />
-                <td className="editW">22.9 UAH</td>
-                <td>
+          <div className="enter none">
+            <Summary total={this.total} />
+            <Table id="electro" bordered hover>
+              <thead>
+                <tr>
+                  <th colSpan="7">
+                    <h3>Electricity bill </h3>
+                  </th>
+                </tr>
+                <tr>
+                  <th>ID</th>
+                  <th>Month</th>
+                  <th>Prev value</th>
+                  <th>Current value</th>
+                  <th>tariff ( for kwt/h)</th>
+                  <th>pay (uah) </th>
+                  <th>date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="edit">
+                  <td className="elinput" contentEditable />
 
-                </td>
-                <td>
-                  <input id="dateW" type="date" />
-                </td>
-              </tr>
-              {this.storeW.map((month1) => {
-                return (
-                  <Watter
-                    month1={this.storeW}
-                    key={month1[0].idW}
-                    monthseW={month1[1].monthseW}
-                    preW={month1[2].preW}
-                    curW={month1[3].curW}
-                    tariffW={month1[4].tariffW}
-                    payW={month1[5].payW}
-                    dateW={month1[6].dateW}
-                  />
-                );
-              })}
-            </tbody>
-          </Table>
-          <Button variant="outline-info" onClick={this.saveHandlerW.bind(this)}>
-            SAVE THE MONTH
-          </Button>
+                  <td>
+                    <select id="el-select">
+                      <option value="jnv" defaultValue="jnv">
+                        jnv
+                      </option>
+                      <option value="feb">feb</option>
+                      <option value="march">march</option>
+                      <option value="apr">apr</option>
+                      <option value="may">may</option>
+                      <option value="jun">jun</option>
+                      <option value="jul">jul</option>
+                      <option value="aou">aou</option>
+                      <option value="sep">sep</option>
+                      <option value="oct">oct</option>
+                      <option value="nov">nov</option>
+                      <option value="dec">dec</option>
+                    </select>
+                  </td>
+                  <td className="elinput" contentEditable />
+                  <td className="elinput" contentEditable />
+                  <td>1.68 UAH</td>
+                  <td></td>
+                  <td>
+                    <input className="elinput" id="date" type="date" />
+                  </td>
+                </tr>
+                {this.store.map((month) => {
+                  return (
+                    <Elektro
+                      key={month[0].id}
+                      monthsel={month[1].monthsel}
+                      preV={month[2].preV}
+                      curV={month[3].curV}
+                      tariff={month[4].tariff}
+                      pay={month[5].pay}
+                      date={month[6].dateW}
+                    />
+                  );
+                })}
+              </tbody>
+            </Table>
+            <Button
+              id="elBtn"
+              variant="outline-info"
+              onClick={this.saveHandler.bind(this)}
+            >
+              SET THE MONTH
+            </Button>
+            <Table id="watter" bordered hover>
+              <thead>
+                <tr>
+                  <th colSpan="7">
+                    <h3>Watter bill </h3>
+                  </th>
+                </tr>
+                <tr>
+                  <th>ID</th>
+                  <th>Month</th>
+                  <th>Prev value</th>
+                  <th>Current value</th>
+                  <th>tariff ( for m/c)</th>
+                  <th>pay (uah) </th>
+                  <th>date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="editw">
+                  <td className="editW" contentEditable />
+                  <td>
+                    <select name="select">
+                      <option value="jnv" defaultValue="jnv">
+                        jnv
+                      </option>
+                      <option value="feb">feb</option>
+                      <option value="march">march</option>
+                      <option value="apr">apr</option>
+                      <option value="may">may</option>
+                      <option value="jun">jun</option>
+                      <option value="jul">jul</option>
+                      <option value="aou">aou</option>
+                      <option value="sep">sep</option>
+                      <option value="oct">oct</option>
+                      <option value="nov">nov</option>
+                      <option value="dec">dec</option>
+                    </select>
+                  </td>
+                  <td className="editW" contentEditable />
+                  <td className="editW" contentEditable />
+                  <td className="editW">22.9 UAH</td>
+                  <td></td>
+                  <td>
+                    <input id="dateW" type="date" />
+                  </td>
+                </tr>
+                {this.storeW.map((month1) => {
+                  return (
+                    <Watter
+                      month1={this.storeW}
+                      key={month1[0].idW}
+                      monthseW={month1[1].monthseW}
+                      preW={month1[2].preW}
+                      curW={month1[3].curW}
+                      tariffW={month1[4].tariffW}
+                      payW={month1[5].payW}
+                      dateW={month1[6].dateW}
+                    />
+                  );
+                })}
+              </tbody>
+            </Table>
+            <Button
+              variant="outline-info"
+              onClick={this.saveHandlerW.bind(this)}
+            >
+              SAVE THE MONTH
+            </Button>
+          </div>
         </TabbuilderLayout>
       </Aoux>
     );
