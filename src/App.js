@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Tabbuilder from "./Components/Layout/Tabbuilder/Tabbuilder";
 import Container from 'react-bootstrap/Container/'
 import Layout from "./Components/Layout/Layout";
+import Invoice from "./Invoice/Invoice";
 class App extends Component {
   render() {
     return (
@@ -9,6 +10,7 @@ class App extends Component {
           <Layout>
             <h1>my U-Bills</h1>
             <Tabbuilder/>
+            {/*    <Invoice/>*/}
           </Layout>
         </Container>
     );
