@@ -1,14 +1,14 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -18,7 +18,7 @@ code {
 }
 .Content {
   width: 100%;
-  border: .1rem solid #eeeded;
+  border: 0.1rem solid #eeeded;
   padding: 0 20px;
   /*height: 100vh;*/
   position: relative;
@@ -28,10 +28,11 @@ main.Xmlbuilder {
   flex-direction: column;
   justify-content: space-between;
 }
-.summ  tr , .summ  tr td {
+.summ tr,
+.summ tr td {
   border: none;
 }
- h2  {
+h2 {
   padding-top: 10px;
 }
 h3#s {
@@ -41,7 +42,7 @@ h3#s {
 td#t {
   font-weight: 600;
   font-size: 1.2rem;
-  border-bottom: 3px solid red  ;
+  border-bottom: 3px solid red;
 }
 Button {
   margin-bottom: 10px;
@@ -57,47 +58,42 @@ Table {
   width: 100%;
 }
 
-
-tr.edit  td {
-  border-bottom-color: red ;
+tr.edit td {
+  border-bottom-color: red;
   background: #fdfdfb;
 
   opacity: 1;
-;
- color :  red;
+  color: red;
 }
-tr   td.fin , tr td.elinput{
+tr td.fin,
+tr td.elinput {
   background: #fdfdfb;
-  transition: .5s;
+  transition: 0.5s;
 }
 tr td.elinput:hover,
- tr td.fin:hover {
-   background: #faebd7;
-   cursor: pointer;
-
+tr td.fin:hover {
+  background: #faebd7;
+  cursor: pointer;
 }
 
-
-tr.editw  td {
-  border-bottom-color: red ;
+tr.editw td {
+  border-bottom-color: red;
   background: #cef5fd;
- opacity: 1;
-  color :  red;
+  opacity: 1;
+  color: red;
 }
 #electro {
   border: 1px solid #cbcbcb;
-  border-radius: 10px ;
+  border-radius: 10px;
   padding: 10px;
-
 }
-#electro tbody tr:nth-child(2)  {
+#electro tbody tr:nth-child(2) {
   display: none;
 }
-#watter tbody tr:nth-child(2)  {
+#watter tbody tr:nth-child(2) {
   display: none;
 }
 .none {
-
   display: none;
 }
 .im {

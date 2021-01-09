@@ -223,9 +223,7 @@ class Tabbuilder extends Component {
                   <td className="elinput" contentEditable />
                   <td className="elinput" contentEditable />
                   <td>1.68 UAH</td>
-                  <td>
-
-                  </td>
+                  <td></td>
                   <td>
                     <input className="elinput" id="date" type="date" />
                   </td>
