@@ -1,0 +1,23 @@
+.Main ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.Main li {
+    display: inline-block;
+    margin: 20px;
+}
+.Main a {
+    color: black;
+    text-decoration: none;
+
+}
+.Main {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.Main a:hover ,
+.Main a:active  {
+    color: #fa923f;
+}

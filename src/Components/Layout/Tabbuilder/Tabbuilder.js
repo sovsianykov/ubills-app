@@ -179,7 +179,7 @@ class Tabbuilder extends Component {
           >
             enter
           </Button>
-          <div className="enter none">
+          <div className="enter ">
             <Summary total={this.total} />
             <Table id="electro" bordered hover>
               <thead>

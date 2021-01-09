@@ -1,119 +1,201 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Route, withRouter } from 'react-router-dom';
-
-const isModifiedEvent = (event) =>
-    !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
-
-export class LinkContainer extends Component {
-    static propTypes = {
-        history: PropTypes.shape({
-            push: PropTypes.func.isRequired,
-            replace: PropTypes.func.isRequired,
-            createHref: PropTypes.func.isRequired,
-        }).isRequired,
-        location: PropTypes.object,
-        match: PropTypes.object,
-        staticContext: PropTypes.object,
-        children: PropTypes.element.isRequired,
-        onClick: PropTypes.func,
-        replace: PropTypes.bool,
-        to: PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.object,
-        ]).isRequired,
-        exact: PropTypes.bool,
-        strict: PropTypes.bool,
-        className: PropTypes.string,
-        activeClassName: PropTypes.string,
-        style: PropTypes.object,
-        activeStyle: PropTypes.object,
-        isActive: PropTypes.func,
-    };
-
-    static defaultProps = {
-        replace: false,
-        exact: false,
-        strict: false,
-        activeClassName: 'active',
-    };
-
-    handleClick = (event) => {
-        const { children, onClick } = this.props;
-
-        if (children.props.onClick) {
-            children.props.onClick(event);
+import React,{Component} from "react";
+import './Navigation.css'
+import Tabbuilder from "../Layout/Tabbuilder/Tabbuilder";
+import Elektro from "../Layout/Tabbuilder/Elektricity/Elektro";
+import {Route} from 'react-router-dom'
+class MyLinks extends Component{
+    total = 0;
+    store = [
+        [
+            { id: "" },
+            { monthsel: "" },
+            { preV: "" },
+            { curV: "" },
+            { tariff: "" },
+            { pay: "" },
+            { date: "" },
+        ],
+    ];
+    storeW = [
+        [
+            { idW: "" },
+            { monthseW: "" },
+            { preW: "" },
+            { curW: "" },
+            { tariffW: "" },
+            { payW: "" },
+            { dateW: "" },
+        ],
+    ];
+    componentDidMount() {
+        if (localStorage.getItem("storedtotal")) {
+            this.store = JSON.parse(localStorage.getItem("storedstore"));
+            this.storeW = JSON.parse(localStorage.getItem("storedstoreW"));
+            this.total = JSON.parse(localStorage.getItem("storedtotal"));
         }
-
-        if (onClick) {
-            onClick(event);
-        }
-
-        if (
-            !event.defaultPrevented && // onClick prevented default
-            event.button === 0 && // ignore right clicks
-            !isModifiedEvent(event) // ignore clicks with modifier keys
-        ) {
-            event.preventDefault();
-
-            const { replace, to, history } = this.props;
-
-            if (replace) {
-                history.replace(to);
-            } else {
-                history.push(to);
-            }
-        }
-    };
-
-    render() {
-        const {
-            history,
-            location: _location,            // eslint-disable-line no-unused-vars
-            match: _match,                  // eslint-disable-line no-unused-vars
-            staticContext: _staticContext,  // eslint-disable-line no-unused-vars
-            children,
-            replace,                          // eslint-disable-line no-unused-vars
-            to,
-            exact,
-            strict,
-            activeClassName,
-            className,
-            activeStyle,
-            style,
-            isActive: getIsActive,
-            ...props
-        } = this.props;
-
-        const href = history.createHref(
-            typeof to === 'string' ? { pathname: to } : to
-        );
-
-        const child = React.Children.only(children);
-
-        return (
-            <Route
-                path={typeof to === 'object' ? to.pathname : to}
-                exact={exact}
-                strict={strict}
-                children={({ location, match }) => {
-                    const isActive = !!(getIsActive ? getIsActive(match, location) : match);
-
-                    return React.cloneElement(
-                        child,
-                        {
-                            ...props,
-                            className: [className, child.props.className, isActive ? activeClassName : null]
-                                .join(' ').trim(),
-                            style: isActive ? { ...style, ...activeStyle } : style,
-                            href,
-                            onClick: this.handleClick,
-                        }
-                    );
-                }}
-            />
-        );
     }
-}
 
-export default withRouter(LinkContainer);
+    state = {
+        monthsEl: [
+            [
+                { id: Date.now() + Math.random() },
+                { monthsel: "" },
+                { preV: 0 },
+                { curV: 0 },
+                { tariff: "1.68 UAH" },
+                { pay: 0 },
+                { date: "" },
+            ],
+        ],
+        monthsEl1: [
+            [
+                { id: Date.now() + Math.random() },
+                { monthsel: "" },
+                { preV: "wait" },
+                { curV: "wait" },
+                { tariff: "1.68 UAH" },
+                { pay: "0" },
+                { date: "" },
+            ],
+        ],
+
+        storeW: [
+            { idW: 1 },
+            { monthseW: "" },
+            { preW: 0 },
+            { curW: 0 },
+            { tariff: 1.68 },
+            { payW: 0 },
+            { dateW: 0 },
+        ],
+    };
+    saveHandler = () => {
+        const input = document.querySelectorAll(".elinput");
+        const mon = document.querySelector("#el-select ");
+        const date = document.querySelector("#date ");
+        let pay = Math.floor(
+            (parseInt(input[2].textContent) - parseInt(input[1].textContent)) * 1.68
+        );
+        if (isNaN(pay)) {
+            pay = "please input correct values";
+        }
+
+        this.total += pay;
+        let i = this.store.length;
+        this.store[i] = [
+            { id: Date.now() + Math.random() },
+            { monthsel: mon.value },
+            { preV: input[1].textContent },
+            { curV: input[2].textContent },
+            { tariff: "1.68 UAH" },
+            { pay: pay },
+            { date: date.value },
+        ];
+
+        this.setState(() => {
+            return {
+                monthsEl1: [
+                    [
+                        { id: input[0].textContent },
+                        { monthsel: mon.value },
+                        { preV: input[2].textContent },
+                        { curV: input[3].textContent },
+                        { tariff: "1.68 UAH" },
+                        { pay: pay },
+                        { date: date.value },
+                    ],
+                ],
+            };
+        });
+    };
+    enterHandler = () => {
+        const enter = document.querySelector(".enter");
+        const eBtn = document.querySelector("#enter-btn");
+        eBtn.className = "none";
+        enter.classList.remove("none");
+        this.setState(() => {
+            return {
+                monthsEl1: [[{ id: 0 }]],
+            };
+        });
+    };
+
+    saveHandlerW = () => {
+        const input1 = document.querySelectorAll(".editW");
+        const monW = document.querySelector("select ");
+        const dateW = document.querySelector("#dateW ");
+
+        let payW = Math.floor(
+            (parseInt(input1[2].textContent) - parseInt(input1[1].textContent)) * 22.9
+        );
+        if (isNaN(payW)) {
+            payW = "please input correct values";
+        }
+        this.total += payW;
+        let j = this.storeW.length;
+        this.storeW[j] = [
+            { idW: Date.now() + Math.random() },
+            { monthseW: monW.value },
+            { preW: input1[1].textContent },
+            { curW: input1[2].textContent },
+            { tariffW: "1.68 UAH" },
+            { payW: payW },
+            { dateW: dateW.value },
+        ];
+
+        this.setState(() => {
+            return {
+                monthsEl1: [
+                    [
+                        { id: input1[0].textContent },
+                        { monthsel: monW.value },
+                        { preV: input1[2].textContent },
+                        { curV: input1[3].textContent },
+                        { tariff: "1.68 UAH" },
+                        { pay: payW },
+                        { date: dateW.value },
+                    ],
+                ],
+            };
+        });
+    };
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        localStorage.setItem("storedstore", JSON.stringify(this.store));
+        localStorage.setItem("storedstoreW", JSON.stringify(this.storeW));
+        localStorage.setItem("storedtotal", JSON.stringify(this.total));
+    }
+
+       render() {
+
+
+           return (
+                 <div className ='Main'>
+                    <header>
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/general" >General</a></li>
+                            <li><a href="/electro">Ee</a></li>
+                            <li><a href="/invoic">Invoice</a></li>
+                        </ul>
+                    </header>
+                     <section className='Home'>
+                         <Route path = '/' render ={ ()=><h1>Home</h1> } />
+                     </section>
+                     <section className='General'>
+                         <Route path = '/general' render ={()=> <Tabbuilder/> } />
+                     </section>
+                     <section className='Electro'>
+                         <div>
+                         </div>
+                     </section>
+
+
+
+                 </div>
+
+
+
+           )
+       }
+}
+export default MyLinks;
