@@ -8,50 +8,55 @@ const Invoice =(props)=> {
      <Aoux>
     <div className="invoice-box">
         <table cellPadding="0" cellSpacing="0">
-            <tr className="top">
-                <td colSpan="2">
-                    <table>
-                        <tr>
-                            <td className="title">
-                                <h2>My Invoice</h2>
-                            </td>
+           <tbody>
+           <tr className="top">
+               <td colSpan="2">
+                   <table>
+                       <tr>
+                           <td className="title">
+                               <h2>My Invoice</h2>
+                           </td>
 
-                            <td>
-                                {/*Invoice #: 123<br>*/}
-                                {/*Created: January 1, 2015<br>*/}
-                                {/*Due: February 1, 2015*/}
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
+                           <td>
+                               {/*Invoice #: 123<br>*/}
+                               {/*Created: January 1, 2015<br>*/}
+                               {/*Due: February 1, 2015*/}
+                           </td>
+                       </tr>
+                   </table>
+               </td>
+           </tr>
 
-            <tr className="information">
-                <td colSpan="2">
+           <tr className="information">
+               <td colSpan="2">
 
-                </td>
-            </tr>
+               </td>
+           </tr>
 
-            <tr className="heading">
-                <td>
-                    Payment Method
-                </td>
+           <tr className="heading">
+               <td>
+                   Payment Method
+               </td>
 
-                <td>
-                    Check #
-                </td>
-            </tr>
+               <td>
+                   Check #
+               </td>
+           </tr>
+           </tbody>
 
-            <tr className="details">
-                <td>
-                    Check
-                </td>
+           <tbody>
+           <tr className="details">
+               <td>
+                   Check
+               </td>
 
-                <td>
-                    1000
-                </td>
-            </tr>
+               <td>
+                   1000
+               </td>
+           </tr>
+           </tbody>
 
+            <tbody>
             <tr className="heading">
                 <td>
                     Item
@@ -61,46 +66,45 @@ const Invoice =(props)=> {
                     Price
                 </td>
             </tr>
+            </tbody>
 
-            <tr className="item">
-                <td>
-                    Electricity
-                </td>
+          <tbody>
+          <tr className="item">
+              <td>
+                  Electricity
+              </td>
 
-                <td>
-                    {props.total}
-                </td>
-            </tr>
+              <td>
+                  {props.total}
+              </td>
+          </tr>
+          </tbody>
 
-            <tr className="item">
-                <td>
-                    Hosting (3 months)
-                </td>
+           <tbody>
+           <tr className="item">
+               <td>
+                   Watter
+               </td>
 
-                <td>
-                    $75.00
-                </td>
-            </tr>
+               <td>
+                   $00.00
+               </td>
+           </tr>
+           </tbody>
 
-            <tr className="item last">
-                <td>
-                    Domain name (1 year)
-                </td>
+           <tbody>
+           <tr className="item last">
+               <td>
+                   Total
+               </td>
 
-                <td>
-                    $10.00
-                </td>
-            </tr>
+               <td>
+                   $0.00
+               </td>
+           </tr>
+           </tbody>
 
-            <tr className="total">
-                <td>
 
-                </td>
-
-                <td>
-                    Total: $385.00
-                </td>
-            </tr>
         </table>
     </div>
      </Aoux>
