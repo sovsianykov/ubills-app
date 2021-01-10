@@ -14,17 +14,17 @@ code {
 
 .Container {
   margin: 0 auto;
-  max-width: 1300px;
+  width: 90%;
 }
 main {
   width: 100%;
 }
 .Content {
-  width: 100%;
+  width: 1300px;
   border: 0.1rem solid #eeeded;
-  padding: 0 20px;
+  padding: 0 20px 20px;
   /*height: 100vh;*/
-  position: relative;
+  /*position: relative;*/
 }
 main.Xmlbuilder {
   display: flex;
@@ -58,7 +58,7 @@ Button {
 /*}*/
 Table {
   margin: 0 auto;
-  width: 100%;
+  width: 1295px;
 }
 
 tr.edit td {
@@ -102,7 +102,8 @@ tr.editw td {
 .im {
   width: 50px;
   height: 50px;
-  margin: 0 auto;
+  position: absolute;
+  top: 30px;
 }
 
 img {
