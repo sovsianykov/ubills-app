@@ -16,6 +16,9 @@ code {
   margin: 0px auto;
   max-width: 1300px;
 }
+main {
+  width: 100%;
+}
 .Content {
   width: 100%;
   border: 0.1rem solid #eeeded;
@@ -26,7 +29,7 @@ code {
 main.Xmlbuilder {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .summ tr,
 .summ tr td {

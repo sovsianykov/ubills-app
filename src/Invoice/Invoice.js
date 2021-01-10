@@ -1,101 +1,109 @@
 import React from "react";
-import { render } from "react-dom";
+import './Invoice.css'
+import Aoux from "../Hoc/Aoux";
+const Invoice =(props)=> {
 
-import { Col, Divider, Row, Table } from 'antd';
-import 'antd/dist/antd.css';
 
-const Invoice = () => {
-    return (
-        <div style={{ padding: 20 }}>
-            <Row>
-                <Col>
-                    <Divider>Invoice</Divider>
-                </Col>
-            </Row>
-
-            <Row gutter={24} style={{ marginTop: 32 }}>
-                <Col span={8}>
-                    <h3>Eco Haya</h3>
-                    <div>#944/945, 4th Cross, 9th Main,</div>
-                    <div>Vijaya Bank Layout,</div>
-                    <div>Bannerghatta Road,</div>
-                    <div>Bangalore - 560076</div>
-                </Col>
-                <Col span={8} offset={8}>
+ return (
+     <Aoux>
+    <div className="invoice-box">
+        <table cellPadding="0" cellSpacing="0">
+            <tr className="top">
+                <td colSpan="2">
                     <table>
                         <tr>
-                            <th>Invoice # :</th>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <th>Invoice Date :</th>
-                            <td>10-01-2018</td>
-                        </tr>
-                        <tr>
-                            <th>Due Date :</th>
-                            <td>10-01-2018</td>
-                        </tr>
-                    </table>
-                </Col>
-            </Row>
+                            <td className="title">
+                                <h2>My Invoice</h2>
+                            </td>
 
-            <Row style={{ marginTop: 48 }}>
-                <div>Bill To: <strong>Strides Shasun Ltd</strong></div>
-                <div>Bannerghatt Road,</div>
-                <div>Bangalore - 560076</div>
-            </Row>
-
-
-            <Row style={{ marginTop: 48 }}>
-                <Table dataSource={[{
-                    id: 1,
-                    name: 'Accommodation (Single Occupancy)',
-                    description: 'Accommodation',
-                    price: 1599,
-                    quantity: 1
-                }]}
-                       pagination={false}
-                >
-                    <Table.Column title="Items" dataIndex='name' />
-                    <Table.Column title="Description" dataIndex='description' />
-                    <Table.Column title="Quantity" dataIndex='quantity' />
-                    <Table.Column title="Price" dataIndex='price' />
-                    <Table.Column title="Line Total" />
-                </Table>
-            </Row>
-
-            <Row style={{ marginTop: 48 }}>
-                <Col span={8} offset={16}>
-                    <table>
-                        <tr>
-                            <th>Gross Total :</th>
-                            <td>Rs. 1599</td>
-                        </tr>
-                        <tr>
-                            <th>IGST @6% :</th>
-                            <td>Rs. 95.94</td>
-                        </tr>
-                        <tr>
-                            <th>CGST @6% :</th>
-                            <td>Rs. 95.94</td>
-                        </tr>
-                        <tr>
-                            <th>Nett Total :</th>
-                            <td>Rs. 1790.88</td>
+                            <td>
+                                {/*Invoice #: 123<br>*/}
+                                {/*Created: January 1, 2015<br>*/}
+                                {/*Due: February 1, 2015*/}
+                            </td>
                         </tr>
                     </table>
-                </Col>
-            </Row>
+                </td>
+            </tr>
 
-            <Row style={{ marginTop: 48, textAlign: 'center' }}>
-                notes
-            </Row>
+            <tr className="information">
+                <td colSpan="2">
 
-            <Row style={{ marginTop: 48, textAlign: 'center' }}>
-                Footer
-            </Row>
-        </div>
-    );
-};
+                </td>
+            </tr>
 
+            <tr className="heading">
+                <td>
+                    Payment Method
+                </td>
+
+                <td>
+                    Check #
+                </td>
+            </tr>
+
+            <tr className="details">
+                <td>
+                    Check
+                </td>
+
+                <td>
+                    1000
+                </td>
+            </tr>
+
+            <tr className="heading">
+                <td>
+                    Item
+                </td>
+
+                <td>
+                    Price
+                </td>
+            </tr>
+
+            <tr className="item">
+                <td>
+                    Electricity
+                </td>
+
+                <td>
+                    {props.total}
+                </td>
+            </tr>
+
+            <tr className="item">
+                <td>
+                    Hosting (3 months)
+                </td>
+
+                <td>
+                    $75.00
+                </td>
+            </tr>
+
+            <tr className="item last">
+                <td>
+                    Domain name (1 year)
+                </td>
+
+                <td>
+                    $10.00
+                </td>
+            </tr>
+
+            <tr className="total">
+                <td>
+
+                </td>
+
+                <td>
+                    Total: $385.00
+                </td>
+            </tr>
+        </table>
+    </div>
+     </Aoux>
+)
+}
 export default Invoice;
