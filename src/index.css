@@ -13,8 +13,11 @@ code {
 }
 
 .Container {
-  margin: 0px auto;
+  margin: 0 auto;
   max-width: 1300px;
+}
+main {
+  width: 100%;
 }
 .Content {
   width: 100%;
@@ -26,7 +29,7 @@ code {
 main.Xmlbuilder {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .summ tr,
 .summ tr td {
@@ -99,7 +102,7 @@ tr.editw td {
 .im {
   width: 50px;
   height: 50px;
-  margin: 0px auto;
+  margin: 0 auto;
 }
 
 img {
