@@ -12,17 +12,19 @@ const Invoice =(props)=> {
            <tr className="top">
                <td colSpan="2">
                    <table>
+                       <tbody>
                        <tr>
                            <td className="title">
-                               <h2>My Invoice</h2>
+                               <h2>Invoice</h2>
                            </td>
 
                            <td>
                                {/*Invoice #: 123<br>*/}
-                               {/*Created: January 1, 2015<br>*/}
+                               Created: {props.date}
                                {/*Due: February 1, 2015*/}
                            </td>
                        </tr>
+                       </tbody>
                    </table>
                </td>
            </tr>
@@ -75,7 +77,7 @@ const Invoice =(props)=> {
               </td>
 
               <td>
-                  {props.total}
+                  {props.pay} UAH
               </td>
           </tr>
           </tbody>
@@ -87,7 +89,7 @@ const Invoice =(props)=> {
                </td>
 
                <td>
-                   $00.00
+                   {props.payW} UAH
                </td>
            </tr>
            </tbody>
@@ -95,11 +97,11 @@ const Invoice =(props)=> {
            <tbody>
            <tr className="item last">
                <td>
-                   Total
+                   Total for all months
                </td>
 
                <td>
-                   $0.00
+                   {props.total} UAH
                </td>
            </tr>
            </tbody>

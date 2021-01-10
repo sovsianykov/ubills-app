@@ -6,6 +6,9 @@ import TabbuilderLayout from "./TabbuilderLayout";
 import Summary from "./Summary/Summary";
 import Button from "react-bootstrap/Button";
 import Table from "react-bootstrap/Table";
+import { NavLink, Route } from "react-router-dom";
+import home from "../../Navigate/Img/home.jpg";
+import Invoice from "../../../Invoice/Invoice";
 class Tabbuilder extends Component {
   total = 0;
   store = [
@@ -171,15 +174,203 @@ class Tabbuilder extends Component {
   render() {
     return (
       <Aoux>
+        <div className="Main">
+          <header id="nav">
+            <h1>my U-Bills</h1>
+            <ul>
+              <li>
+                {" "}
+                <NavLink to="/">Home </NavLink>
+              </li>
+              <li>
+                <NavLink to="/electro">Electricity</NavLink>
+              </li>
+              <li>
+                <NavLink to="/watter">Watter</NavLink>
+              </li>
+
+              <li>
+                <NavLink to="/invoic">Invoice</NavLink>
+              </li>
+            </ul>
+          </header>
+          <section className="Home">
+            <Route
+              path="/"
+              render={() => (
+                <div>
+                  <div className="im">
+                    <img src={home} alt="aside" />
+                  </div>
+                  <Button
+                    onClick={this.enterHandler.bind(this)}
+                    id="enter-btn"
+                    variant="info"
+                  >
+                    load history
+                  </Button>
+                </div>
+              )}
+            />
+          </section>
+          <section className="electro">
+            <div>
+              <Route
+                path="/electro"
+                render={() => (
+                  <Table id="elsingle" bordered hover>
+                    <thead>
+                      <tr>
+                        <th colSpan="7">
+                          <h3>Electricity bill </h3>
+                        </th>
+                      </tr>
+                      <tr>
+                        <th>ID</th>
+                        <th>Month</th>
+                        <th>Prev value</th>
+                        <th>Current value</th>
+                        <th>tariff ( for kwt/h)</th>
+                        <th>pay (uah) </th>
+                        <th>date</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="edit">
+                        <td className="elinput" contentEditable />
+
+                        <td>
+                          <select id="el-select">
+                            <option value="jnv" defaultValue="jnv">
+                              jnv
+                            </option>
+                            <option value="feb">feb</option>
+                            <option value="march">march</option>
+                            <option value="apr">apr</option>
+                            <option value="may">may</option>
+                            <option value="jun">jun</option>
+                            <option value="jul">jul</option>
+                            <option value="aou">aou</option>
+                            <option value="sep">sep</option>
+                            <option value="oct">oct</option>
+                            <option value="nov">nov</option>
+                            <option value="dec">dec</option>
+                          </select>
+                        </td>
+                        <td className="elinput" contentEditable />
+                        <td className="elinput" contentEditable />
+                        <td>1.68 UAH</td>
+                        <td />
+                        <td>
+                          <input className="elinput" id="date" type="date" />
+                        </td>
+                      </tr>
+                      {this.store.map((month) => {
+                        return (
+                          <Elektro
+                            key={month[0].id}
+                            monthsel={month[1].monthsel}
+                            preV={month[2].preV}
+                            curV={month[3].curV}
+                            tariff={month[4].tariff}
+                            pay={month[5].pay}
+                            date={month[6].dateW}
+                          />
+                        );
+                      })}
+                    </tbody>
+                  </Table>
+                )}
+              />
+            </div>
+          </section>
+          <section className="Watter">
+            <div>
+              <Route
+                path="/watter"
+                render={() => (
+                  <Table id="wattersingle" bordered hover>
+                    <thead>
+                      <tr>
+                        <th colSpan="7">
+                          <h3>Watter bill </h3>
+                        </th>
+                      </tr>
+                      <tr>
+                        <th>ID</th>
+                        <th>Month</th>
+                        <th>Prev value</th>
+                        <th>Current value</th>
+                        <th>tariff ( for m/c)</th>
+                        <th>pay (uah) </th>
+                        <th>date</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="editw">
+                        <td className="editW" contentEditable />
+                        <td>
+                          <select name="select">
+                            <option value="jnv" defaultValue="jnv">
+                              jnv
+                            </option>
+                            <option value="feb">feb</option>
+                            <option value="march">march</option>
+                            <option value="apr">apr</option>
+                            <option value="may">may</option>
+                            <option value="jun">jun</option>
+                            <option value="jul">jul</option>
+                            <option value="aou">aou</option>
+                            <option value="sep">sep</option>
+                            <option value="oct">oct</option>
+                            <option value="nov">nov</option>
+                            <option value="dec">dec</option>
+                          </select>
+                        </td>
+                        <td className="editW" contentEditable />
+                        <td className="editW" contentEditable />
+                        <td className="editW">22.9 UAH</td>
+                        <td />
+                        <td>
+                          <input id="dateW" type="date" />
+                        </td>
+                      </tr>
+                      {this.storeW.map((month1) => {
+                        return (
+                          <Watter
+                            month1={this.storeW}
+                            key={month1[0].idW}
+                            monthseW={month1[1].monthseW}
+                            preW={month1[2].preW}
+                            curW={month1[3].curW}
+                            tariffW={month1[4].tariffW}
+                            payW={month1[5].payW}
+                            dateW={month1[6].dateW}
+                          />
+                        );
+                      })}
+                    </tbody>
+                  </Table>
+                )}
+              />
+            </div>
+          </section>
+          <section className="Invoice">
+            <Route
+              path="/invoic"
+              render={() => (
+                <Invoice
+                  total={this.total}
+                  pay={this.store[this.store.length - 1][5].pay}
+                  payW={this.storeW[this.storeW.length - 1][5].pay}
+                  date={this.store[this.store.length - 1][6].date}
+                />
+              )}
+            />
+          </section>
+        </div>
         <TabbuilderLayout>
-          <Button
-            onClick={this.enterHandler.bind(this)}
-            id="enter-btn"
-            variant="info"
-          >
-            load history
-          </Button>
-          <div className="enter  ">
+          <div className="enter " id="grand">
             <Summary total={this.total} />
             <Table id="electro" bordered hover>
               <thead>
@@ -223,7 +414,7 @@ class Tabbuilder extends Component {
                   <td className="elinput" contentEditable />
                   <td className="elinput" contentEditable />
                   <td>1.68 UAH</td>
-                  <td></td>
+                  <td />
                   <td>
                     <input className="elinput" id="date" type="date" />
                   </td>
@@ -291,7 +482,7 @@ class Tabbuilder extends Component {
                   <td className="editW" contentEditable />
                   <td className="editW" contentEditable />
                   <td className="editW">22.9 UAH</td>
-                  <td></td>
+                  <td />
                   <td>
                     <input id="dateW" type="date" />
                   </td>

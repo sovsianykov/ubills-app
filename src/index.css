@@ -51,11 +51,7 @@ Button {
   margin-bottom: 10px;
   width: 200px;
 }
-/*Button#elBtn  {*/
-/*  position: absolute;*/
-/*  top: 330px;*/
-/*  right: 40px;*/
-/*}*/
+
 Table {
   margin: 0 auto;
   width: 1295px;
@@ -93,7 +89,19 @@ tr.editw td {
 #electro tbody tr:nth-child(2) {
   display: none;
 }
+#elsingle tbody tr:nth-child(2) {
+  display: none;
+}
+#elsingle tbody tr:nth-child(1) {
+  display: none;
+}
 #watter tbody tr:nth-child(2) {
+  display: none;
+}
+#wattersingle tbody tr:nth-child(2) {
+  display: none;
+}
+#wattersingle tbody tr:nth-child(1) {
   display: none;
 }
 .none {
@@ -112,4 +120,12 @@ img {
 }
 h1 {
   text-align: center;
+}
+Table#elsingle,
+Table#wattersingle {
+  margin-top: 10%;
+  margin-bottom: 700px;
+}
+#grand {
+  padding-top: 5%;
 }
