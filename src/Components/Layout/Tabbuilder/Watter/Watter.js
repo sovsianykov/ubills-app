@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Aoux from "../../../../Hoc/Aoux";
 import PropTypes from  'prop-types'
-import Elektro from "../Elektricity/Elektro";
 
 class Watter extends Component {
 
