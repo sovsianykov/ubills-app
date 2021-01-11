@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Aoux from "../../../../Hoc/Aoux";
+import PropTypes from 'prop-types'
+
 
 class Elektro extends Component {
   render() {
@@ -18,5 +20,12 @@ class Elektro extends Component {
       </Aoux>
     );
   }
+}
+Elektro.propTypes  = {
+  preV: PropTypes.string.isRequired,
+  curV: PropTypes.string.isRequired,
+  pay: PropTypes.oneOfType([ PropTypes.string,
+    PropTypes.number]),
+  date: PropTypes.string.isRequired
 }
 export default Elektro;

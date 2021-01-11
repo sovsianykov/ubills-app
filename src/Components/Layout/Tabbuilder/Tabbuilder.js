@@ -205,23 +205,26 @@ class Tabbuilder extends Component {
                       <img src={home} alt="asidehome" />
                     </a>
                   </div>
-                  <Button
-                    onClick={this.enterHandler.bind(this)}
-                    id="enter-btn"
-                    variant="info"
-                  >
-                    load history
-                  </Button>
                 </div>
               )}
             />
           </section>
           <section className="electro">
             <div>
+
               <Route
                 path="/electro"
                 render={() => (
+                    <div>
+                    <Button
+                        onClick={this.enterHandler.bind(this)}
+                        id="enter-btn"
+                        variant="info"
+                    >
+                      load history
+                    </Button>
                   <Table id="elsingle" bordered hover>
+
                     <thead>
                       <tr>
                         <th colSpan="7">
@@ -244,7 +247,7 @@ class Tabbuilder extends Component {
 
                         <td>
                           <select id="el-select">
-                            <option value="jnv" defaultValue="jnv">
+                            <option value="jan" defaultValue="jnv">
                               jnv
                             </option>
                             <option value="feb">feb</option>
@@ -253,7 +256,7 @@ class Tabbuilder extends Component {
                             <option value="may">may</option>
                             <option value="jun">jun</option>
                             <option value="jul">jul</option>
-                            <option value="aou">aou</option>
+                            <option value="aug">aou</option>
                             <option value="sep">sep</option>
                             <option value="oct">oct</option>
                             <option value="nov">nov</option>
@@ -277,12 +280,13 @@ class Tabbuilder extends Component {
                             curV={month[3].curV}
                             tariff={month[4].tariff}
                             pay={month[5].pay}
-                            date={month[6].dateW}
+                            date={month[6].date}
                           />
                         );
                       })}
                     </tbody>
                   </Table>
+                    </div>
                 )}
               />
             </div>
@@ -292,6 +296,14 @@ class Tabbuilder extends Component {
               <Route
                 path="/watter"
                 render={() => (
+                    <div>
+                      <Button
+                          onClick={this.enterHandler.bind(this)}
+                          id="enter-btn"
+                          variant="info"
+                      >
+                        load history
+                      </Button>
                   <Table id="wattersingle" bordered hover>
                     <thead>
                       <tr>
@@ -314,8 +326,8 @@ class Tabbuilder extends Component {
                         <td className="editW" contentEditable />
                         <td>
                           <select name="select">
-                            <option value="jnv" defaultValue="jnv">
-                              jnv
+                            <option value="jan" defaultValue="jan">
+                              jan
                             </option>
                             <option value="feb">feb</option>
                             <option value="march">march</option>
@@ -323,7 +335,7 @@ class Tabbuilder extends Component {
                             <option value="may">may</option>
                             <option value="jun">jun</option>
                             <option value="jul">jul</option>
-                            <option value="aou">aou</option>
+                            <option value="aug">aou</option>
                             <option value="sep">sep</option>
                             <option value="oct">oct</option>
                             <option value="nov">nov</option>
@@ -354,22 +366,32 @@ class Tabbuilder extends Component {
                       })}
                     </tbody>
                   </Table>
+                    </div>
                 )}
               />
             </div>
           </section>
           <section className="Invoice">
+            <div>
+              <Button
+                  onClick={this.enterHandler.bind(this)}
+                  id="enter-btn"
+                  variant="info"
+              >
+                load history
+              </Button>
             <Route
               path="/invoic"
               render={() => (
                 <Invoice
                   total={this.total}
                   pay={this.store[this.store.length - 1][5].pay}
-                  payW={this.storeW[this.storeW.length - 1][5].pay}
+                  payW={this.storeW[this.storeW.length - 1][5].payW}
                   date={this.store[this.store.length - 1][6].date}
                 />
               )}
             />
+            </div>
           </section>
         </div>
         <TabbuilderLayout>
@@ -431,7 +453,7 @@ class Tabbuilder extends Component {
                       curV={month[3].curV}
                       tariff={month[4].tariff}
                       pay={month[5].pay}
-                      date={month[6].dateW}
+                      date={month[6].date}
                     />
                   );
                 })}
@@ -466,7 +488,7 @@ class Tabbuilder extends Component {
                   <td className="editW" contentEditable />
                   <td>
                     <select name="select">
-                      <option value="jnv" defaultValue="jnv">
+                      <option value="jan" defaultValue="jan">
                         jnv
                       </option>
                       <option value="feb">feb</option>
@@ -475,7 +497,7 @@ class Tabbuilder extends Component {
                       <option value="may">may</option>
                       <option value="jun">jun</option>
                       <option value="jul">jul</option>
-                      <option value="aou">aou</option>
+                      <option value="aug">aou</option>
                       <option value="sep">sep</option>
                       <option value="oct">oct</option>
                       <option value="nov">nov</option>
@@ -518,4 +540,8 @@ class Tabbuilder extends Component {
     );
   }
 }
+
+
+
+
 export default Tabbuilder;

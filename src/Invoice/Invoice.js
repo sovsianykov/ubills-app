@@ -1,6 +1,9 @@
 import React from "react";
 import './Invoice.css'
 import Aoux from "../Hoc/Aoux";
+import PropTypes from  'prop-types'
+
+
 const Invoice =(props)=> {
 
 
@@ -111,5 +114,15 @@ const Invoice =(props)=> {
     </div>
      </Aoux>
 )
+}
+Invoice.propTypes  = {
+
+    pay: PropTypes.oneOfType([ PropTypes.string,
+        PropTypes.number]),
+    payW: PropTypes.oneOfType([ PropTypes.string,
+        PropTypes.number]),
+
+    date: PropTypes.string.isRequired,
+    total: PropTypes.number.isRequired
 }
 export default Invoice;
