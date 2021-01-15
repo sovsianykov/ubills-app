@@ -5,7 +5,6 @@ const Tabblebuilderlayout = (props) =>(
     <Aoux>
         <main className = 'Xmlbuilder '>
             {props.children}
-
         </main>
     </Aoux>
 )

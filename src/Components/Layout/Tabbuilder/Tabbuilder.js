@@ -229,6 +229,9 @@ class Tabbuilder extends Component {
                     >
                       load history
                     </Button>
+                    <Button id='clean-btn' variant='info' onClick={this.cleanHandler.bind(this)}>
+                      Clean history
+                    </Button>
                     <Table id="elsingle" bordered hover>
                       <thead>
                         <tr>
@@ -309,6 +312,9 @@ class Tabbuilder extends Component {
                     >
                       load history
                     </Button>
+                    <Button id='clean-btn' variant='info' onClick={this.cleanHandler.bind(this)}>
+                      Clean history
+                    </Button>
                     <Table id="wattersingle" bordered hover>
                       <thead>
                         <tr>
@@ -385,6 +391,9 @@ class Tabbuilder extends Component {
               >
                 load history
               </Button >
+              <Button id='clean-btn' variant='info' onClick={this.cleanHandler.bind(this)}>
+                Clean history
+              </Button>
 
               <Route
                 path="/invoic"
@@ -401,9 +410,6 @@ class Tabbuilder extends Component {
           </section>
         </div>
         <TabbuilderLayout>
-          <Button id='clean-btn' variant='info' onClick={this.cleanHandler.bind(this)}>
-            Clean history
-          </Button>
           <div className="enter " id="grand">
             <Summary total={this.total} />
             <Table id="electro" bordered hover>
