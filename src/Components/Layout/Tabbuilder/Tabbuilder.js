@@ -125,6 +125,13 @@ class Tabbuilder extends Component {
       };
     });
   };
+  cleanHandler = () => {
+    const enter = document.querySelector(".enter");
+    const cBtn = document.querySelector("#clean-btn");
+    cBtn.className = "none";
+    enter.classList.remove("none");
+    localStorage.clear()
+  };
 
   saveHandlerW = () => {
     const input1 = document.querySelectorAll(".editW");
@@ -377,7 +384,8 @@ class Tabbuilder extends Component {
                 variant="info"
               >
                 load history
-              </Button>
+              </Button >
+
               <Route
                 path="/invoic"
                 render={() => (
@@ -393,6 +401,9 @@ class Tabbuilder extends Component {
           </section>
         </div>
         <TabbuilderLayout>
+          <Button id='clean-btn' variant='info' onClick={this.cleanHandler.bind(this)}>
+            Clean history
+          </Button>
           <div className="enter " id="grand">
             <Summary total={this.total} />
             <Table id="electro" bordered hover>
@@ -418,8 +429,8 @@ class Tabbuilder extends Component {
 
                   <td>
                     <select id="el-select">
-                      <option value="jnv" defaultValue="jnv">
-                        jnv
+                      <option value="jan" defaultValue="jnv">
+                        jan
                       </option>
                       <option value="feb">feb</option>
                       <option value="march">march</option>
@@ -427,7 +438,7 @@ class Tabbuilder extends Component {
                       <option value="may">may</option>
                       <option value="jun">jun</option>
                       <option value="jul">jul</option>
-                      <option value="aou">aou</option>
+                      <option value="aug">aou</option>
                       <option value="sep">sep</option>
                       <option value="oct">oct</option>
                       <option value="nov">nov</option>
@@ -487,7 +498,7 @@ class Tabbuilder extends Component {
                   <td>
                     <select name="select">
                       <option value="jan" defaultValue="jan">
-                        jnv
+                        jan
                       </option>
                       <option value="feb">feb</option>
                       <option value="march">march</option>

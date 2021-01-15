@@ -15,9 +15,12 @@ code {
 .Container {
   margin: 0 auto;
   width: 90%;
+  position: relative;
+
 }
 main {
   width: 100%;
+
 }
 .Content {
   width: 1300px;
@@ -25,6 +28,7 @@ main {
   padding: 0 20px 20px;
   /*height: 100vh;*/
   /*position: relative;*/
+
 }
 main.Xmlbuilder {
   display: flex;
@@ -55,6 +59,7 @@ Button {
 Table {
   margin: 0 auto;
   width: 1295px;
+
 }
 
 tr.edit td {
@@ -129,6 +134,17 @@ Table#wattersingle {
 #grand {
   padding-top: 5%;
 }
-Button#enter-btn {
+Button#enter-btn
+{
+
   margin-top: 20px;
+}
+Button#clean-btn
+{
+  position: fixed ;
+  top: 118px;
+  left: 35%;
+
+
+
 }
