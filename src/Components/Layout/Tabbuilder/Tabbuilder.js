@@ -130,7 +130,7 @@ class Tabbuilder extends Component {
     const cBtn = document.querySelector("#clean-btn");
     cBtn.className = "none";
     enter.classList.remove("none");
-    localStorage.clear()
+    localStorage.clear();
   };
 
   saveHandlerW = () => {
@@ -229,7 +229,11 @@ class Tabbuilder extends Component {
                     >
                       load history
                     </Button>
-                    <Button id='clean-btn' variant='info' onClick={this.cleanHandler.bind(this)}>
+                    <Button
+                      id="clean-btn"
+                      variant="info"
+                      onClick={this.cleanHandler.bind(this)}
+                    >
                       Clean history
                     </Button>
                     <Table id="elsingle" bordered hover>
@@ -312,7 +316,11 @@ class Tabbuilder extends Component {
                     >
                       load history
                     </Button>
-                    <Button id='clean-btn' variant='info' onClick={this.cleanHandler.bind(this)}>
+                    <Button
+                      id="clean-btn"
+                      variant="info"
+                      onClick={this.cleanHandler.bind(this)}
+                    >
                       Clean history
                     </Button>
                     <Table id="wattersingle" bordered hover>
@@ -390,8 +398,12 @@ class Tabbuilder extends Component {
                 variant="info"
               >
                 load history
-              </Button >
-              <Button id='clean-btn' variant='info' onClick={this.cleanHandler.bind(this)}>
+              </Button>
+              <Button
+                id="clean-btn"
+                variant="info"
+                onClick={this.cleanHandler.bind(this)}
+              >
                 Clean history
               </Button>
 
